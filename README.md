@@ -87,7 +87,9 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 > Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
 
-[Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
+![Component Tree Picture](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633380537/DevelopingMobility/Screen_Shot_2021-10-04_at_4.48.08_PM_wikhpy.png)
+<br>
+[Component Tree](https://whimsical.com/developingmovement-AVfPkfX3adU8zENYZfH3MF)
 
 #### Component Architecture
 
