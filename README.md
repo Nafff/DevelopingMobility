@@ -149,7 +149,7 @@ src
 
 ![Dummy Link](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633377516/DevelopingMobility/Screen_Shot_2021-10-04_at_3.35.43_PM_bkusvu.png)
 <br>
-[ERD Link](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+[ERD Link](https://drive.google.com/file/d/142HUdcaSB7qtiuELs_oyPxQT3mR7W3DN/view?usp=sharing)
 <br>
 
 ***
