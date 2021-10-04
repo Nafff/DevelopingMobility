@@ -91,19 +91,41 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 #### Component Architecture
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
-
 ``` structure
 
 src
-|__ assets/
-      |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
-|__ components/
-      |__ Header.jsx
+|__ containers/
+      |__ MainContainer.jsx
+|__ layouts/
+      |__ Layout.jsx
+|__ screens/
+      |__ Home
+          |__ Home.jsx
+          |__ Home.css
+      |__ Stretches
+          |__ Stretches.jsx
+          |__ Stretches.css
+      |__ StretchDetail
+          |__ StretchDetail.jsx
+          |__ StretchDetail.css
+      |__ StretchCreate
+          |__ StretchCreate.jsx
+          |__ StretchCreate.css
+      |__ UserProfile
+          |__ UserProfile.jsx
+          |__ UserProfile.css
+      |__ Login
+          |__ Login.jsx
+          |__ Login.css
+      |__ Register
+          |__ Register.jsx
+          |__ Register.css
 |__ services/
+      |__ auth.js
+      |__ config.js
+      |__ stretches.jsx
+      |__ routines.js
+      |__ favorites.js
 
 ```
 
