@@ -40,16 +40,16 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-|      Axios       | _Lorem ipsum dolor sit amet, consectetur._ |
-|    Material UI   | _Lorem ipsum dolor sit amet, consectetur._ |
-|    PostgreSQL    | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       | _Library used for building UI components._ |
+|   React Router   | _Library used to enable dynamic routing._  |
+|      Axios       | _Library allowing us to make http requests and communicate with the backend._ |
+|    Material UI   | _Library used for frontend styling._ |
+|      Rails       | _Framework used for the development of the backend of the website._ |
+|    PostgreSQL    | _Database management system used for backend._ |
+|      Bcrypt      | _Dependency used for password hashing for authentication._ |
+|       Jwt        | _Dependency for transmitting data securly between frontend and backend._ |
 
 <br>
 
@@ -147,9 +147,9 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
-
-[ERD Sample](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+![Dummy Link](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633377516/DevelopingMobility/Screen_Shot_2021-10-04_at_3.35.43_PM_bkusvu.png)
+<br>
+[ERD Link](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
 <br>
 
 ***
