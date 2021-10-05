@@ -59,8 +59,6 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
-
 ![Landing Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429866/DevelopingMobility/Screen_Shot_2021-10-05_at_6.27.32_AM_unof5a.png)
 
 - Landing
