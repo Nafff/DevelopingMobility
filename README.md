@@ -136,9 +136,9 @@ src
       |__ EditUserProfile
           |__ EditUserProfile.jsx
           |__ EditUserProfile.css
-      |__ Routine
-          |__ Routine.jsx
-          |__ Routine.css
+      |__ Routine Details
+          |__ RoutineDetails.jsx
+          |__ RoutineDetails.css
       |__ EditRoutine
           |__ EditRoutine.jsx
           |__ EditRoutine.css
