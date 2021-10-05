@@ -61,29 +61,48 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Dummy Link](url)
+![Landing Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429866/DevelopingMobility/Screen_Shot_2021-10-05_at_6.27.32_AM_unof5a.png)
 
-- Desktop Landing
+- Landing
 
-![Dummy Link](url)
+![Sign Up Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429866/DevelopingMobility/Screen_Shot_2021-10-05_at_6.28.06_AM_ge0kv5.png)
 
-- Desktop Hero
+- Sign Up
 
-![Dummy Link](url)
+![Sign In Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429865/DevelopingMobility/Screen_Shot_2021-10-05_at_6.28.24_AM_m37f2n.png)
 
-- Resource Index
+- Sign In
 
-![Dummy Link](url)
+![Home Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429866/DevelopingMobility/Screen_Shot_2021-10-05_at_6.27.52_AM_fo9ay3.png)
 
-- Resource Show
+- Home
 
-![Dummy Link](url)
+![Stretches Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429866/DevelopingMobility/Screen_Shot_2021-10-05_at_6.28.40_AM_fjkkam.png)
 
-- Tablet Resource Index
+- Stretches
 
-![Dummy Link](url)
+![Stretch Detail Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429865/DevelopingMobility/Screen_Shot_2021-10-05_at_6.28.55_AM_vr2raq.png)
 
-- Mobile Resource Index
+- Stretch Detail
+
+![User Profile Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429865/DevelopingMobility/Screen_Shot_2021-10-05_at_6.29.06_AM_z8pegi.png)
+
+- User Profile
+
+![Edit User Profile Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429865/DevelopingMobility/Screen_Shot_2021-10-05_at_6.29.19_AM_qvewaq.png)
+
+- Edit User Profile
+
+![Routine Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429865/DevelopingMobility/Screen_Shot_2021-10-05_at_6.29.33_AM_goyzo2.png)
+
+- Routine
+
+![Edit Routine Image](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633429865/DevelopingMobility/Screen_Shot_2021-10-05_at_6.29.45_AM_fvsjto.png)
+
+- Edit Routine
+
+[Wireframe Link](https://www.figma.com/file/tOAMy2ExoRh0F3ny3AJCyx/Developing-Mobility?node-id=0%3A1)
+
 
 #### Component Tree
 
