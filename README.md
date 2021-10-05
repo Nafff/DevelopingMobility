@@ -106,7 +106,7 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 ![Component Tree Picture](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633423891/DevelopingMobility/Screen_Shot_2021-10-05_at_4.51.02_AM_amlhlg.png)
 <br>
-[Component Tree](https://whimsical.com/developingmovement-AVfPkfX3adU8zENYZfH3MF)
+[Component Tree](https://whimsical.com/developingmobility-AVfPkfX3adU8zENYZfH3MF)
 
 #### Component Architecture
 
