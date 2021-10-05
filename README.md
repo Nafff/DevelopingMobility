@@ -18,13 +18,13 @@
 <br>
 
 ## Overview
-DevelopingMobility is a platform designed to help user alleviate pain and discomfort from our sedentary lifestyle. Users are able to select areas where they feel tension or pain from a clickable model on the home page. When the user clicks a body part will be redirected to a page containing streches and mobility drills for that muscle group. Users can click on specifc stretches to see more information. On the stretch details page they can favorite stretches, add them to a routine, and make comments on the streches for other users to see. Users have their own profile page where they can view their favorites stretches and routines.
+DevelopingMobility is a platform designed to help the user alleviate pain and discomfort in our new work from home world. Users are able to select areas where they feel tension or pain from a clickable model on the home page. When the user clicks a body part will be redirected to a page containing streches and mobility drills for that muscle group. Users can click on specifc stretches to see more information. On the stretch details page they can favorite stretches and add them to a routine. Users have their own profile page where they can view their favorites stretches and routines.
 
 <br>
 
 ## MVP
 
-The DevelopingMobility MVP will include a home page with clickable human body model that will redirect the user to specific muscle detail pages. The muscle detail pages will contain a list of streches and mobility drills that will each redirect to a detail page with a video and more information about the stretch. Users can comment on the stretch and save it as a favorite. Users can also add exercises to a specific routine viewable on their profile page.
+The DevelopingMobility MVP will include a home page with clickable human body model that will redirect the user to specific muscle detail pages. The muscle detail pages will contain a list of streches and mobility drills that will each redirect to a detail page with a video and more information about the stretch. Users can add a stretch to a drop down list of their routines or add as a favorite. Users can edit their routines and their profile details.
 
 <br>
 
@@ -32,9 +32,11 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 - _A home page that will redirect the user to specific muscle detail pages based on their selection_
 - _Muscle detail page that lists available stretches_
-- _Strech detail page that shows information about the movement and allows a logged in user to leave comments, save as favorite, or add to routine_
+- _Strech detail page that shows information about the stretch, a button to save as favorite, and a drop down list to add to routine_
 - _Full user authentication_
 - _User profile page that displays information about the user as well as showing their favorited stretches and saved routines_
+- - _User can edit profile_
+- - _User can create or edit routines_
 
 <br>
 
