@@ -87,8 +87,6 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
-
 ![Component Tree Picture](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633423891/DevelopingMobility/Screen_Shot_2021-10-05_at_4.51.02_AM_amlhlg.png)
 <br>
 [Component Tree](https://whimsical.com/developingmovement-AVfPkfX3adU8zENYZfH3MF)
@@ -103,6 +101,9 @@ src
 |__ layouts/
       |__ Layout.jsx
 |__ screens/
+      |__ LandingPage
+          |__ LandingPage.jsx
+          |__ LandingPage.css
       |__ Home
           |__ Home.jsx
           |__ Home.css
@@ -112,24 +113,29 @@ src
       |__ StretchDetail
           |__ StretchDetail.jsx
           |__ StretchDetail.css
-      |__ StretchCreate
-          |__ StretchCreate.jsx
-          |__ StretchCreate.css
       |__ UserProfile
           |__ UserProfile.jsx
           |__ UserProfile.css
-      |__ Login
-          |__ Login.jsx
-          |__ Login.css
-      |__ Register
-          |__ Register.jsx
-          |__ Register.css
+      |__ EditUserProfile
+          |__ EditUserProfile.jsx
+          |__ EditUserProfile.css
+      |__ Routine
+          |__ Routine.jsx
+          |__ Routine.css
+      |__ EditRoutine
+          |__ EditRoutine.jsx
+          |__ EditRoutine.css
+      |__ SignUp
+          |__ SignUp.jsx
+          |__ SignUp.css
+      |__ SignIn
+          |__ SignIn.jsx
+          |__ SignIn.css
 |__ services/
       |__ auth.js
       |__ config.js
       |__ stretches.jsx
       |__ routines.js
-      |__ favorites.js
 
 ```
 
@@ -151,7 +157,7 @@ src
 
 #### ERD Model
 
-![Dummy Link](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633377516/DevelopingMobility/Screen_Shot_2021-10-04_at_3.35.43_PM_bkusvu.png)
+![ERD Picture](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633424568/DevelopingMobility/Screen_Shot_2021-10-05_at_5.02.25_AM_xbcqw2.png)
 <br>
 [ERD Link](https://drive.google.com/file/d/142HUdcaSB7qtiuELs_oyPxQT3mR7W3DN/view?usp=sharing)
 <br>
