@@ -35,8 +35,8 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 - _Strech detail page that shows information about the stretch, a button to save as favorite, and a drop down list to add to routine_
 - _Full user authentication_
 - _User profile page that displays information about the user as well as showing their favorited stretches and saved routines_
-- - _User can edit profile_
-- - _User can create or edit routines_
+- _User can edit profile_
+- _User can create or edit routines_
 
 <br>
 
@@ -89,7 +89,7 @@ The DevelopingMobility MVP will include a home page with clickable human body mo
 
 > Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
 
-![Component Tree Picture](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633380537/DevelopingMobility/Screen_Shot_2021-10-04_at_4.48.08_PM_wikhpy.png)
+![Component Tree Picture](https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633423891/DevelopingMobility/Screen_Shot_2021-10-05_at_4.51.02_AM_amlhlg.png)
 <br>
 [Component Tree](https://whimsical.com/developingmovement-AVfPkfX3adU8zENYZfH3MF)
 
