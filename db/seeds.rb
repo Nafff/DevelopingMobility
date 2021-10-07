@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Routine.destroy_all
+Stretch.destroy_all
+
+@admin = User.create!(username: 'Chickadee', email: 'chickadee@email.com', password: '123456')
+
+puts "#{User.count} users created"
+
+@stretch1 = Stretch.create!(name: 'Kneeling Lunge', video_url: 'www.testurl.com', picture_url: 'www.testurl.com', muscle_worked: 'Hamstrings', body_part: 'Legs', description: 'Test Desc')
+
+puts "#{Stretch.count} stretches created"

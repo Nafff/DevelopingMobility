@@ -20,9 +20,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const drawerWidth = 240;
 
 const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Test User'
+  avatar: "/static/images/avatars/avatar_6.png",
+  jobTitle: "Senior Developer",
+  name: "Test User",
 };
 
 export default function Layout(props) {
@@ -45,7 +45,7 @@ export default function Layout(props) {
         >
           <Toolbar>
             <Typography variant="h6" noWrap component="div">
-              Permanent drawer
+              DevelopingMobility
             </Typography>
           </Toolbar>
         </AppBar>
@@ -63,6 +63,7 @@ export default function Layout(props) {
             "& .MuiDrawer-paper": {
               width: drawerWidth,
               boxSizing: "border-box",
+              bgcolor: "#8D7C95",
             },
           }}
           variant="permanent"
@@ -77,7 +78,7 @@ export default function Layout(props) {
               p: 2,
             }}
           >
-            <Avatar
+            {/* <Avatar
               component={RouterLink}
               src={user.avatar}
               sx={{
@@ -86,7 +87,7 @@ export default function Layout(props) {
                 height: 64,
               }}
               to="/app/account"
-            />
+            /> */}
             <Typography color="textPrimary" variant="h5">
               {user.name}
             </Typography>
