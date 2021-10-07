@@ -11,7 +11,7 @@ class RoutinesController < ApplicationController
 
   # GET /routines/1
   def show
-    render json: @routine, include: :flavors
+    render json: @routine, include: :stretches
   end
 
   # POST /routines
