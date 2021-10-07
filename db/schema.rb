@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 2021_10_06_200750) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Routines_Stretches", id: false, force: :cascade do |t|
-    t.bigint "Routine_id", null: false
-    t.bigint "Stretch_id", null: false
+  create_table "routines_stretches", id: false, force: :cascade do |t|
+    t.bigint "routine_id", null: false
+    t.bigint "stretch_id", null: false
   end
 
   create_table "routines", force: :cascade do |t|

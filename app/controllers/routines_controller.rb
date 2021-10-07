@@ -41,7 +41,7 @@ class RoutinesController < ApplicationController
   end
 
   # adding stretch to routine method goes here
-  def add_strech_to_routine
+  def add_stretch_to_routine
     @routine = Routine.find(params[:id])
     @stretch = Stretch.find(params[:stretch_id])
 

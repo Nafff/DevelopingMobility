@@ -1,42 +1,98 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 
-import Stretches from '../screens/Stretches/Stretches'
-import StretchDetail from '../screens/StretchDetail/StretchDetail'
-import UserProfile from '../screens/UserProfile/UserProfile'
-import EditUserProfile from '../screens/EditUserProfile/EditUserProfile'
-import RoutineDetail from '../screens/RoutineDetail/RoutineDetail'
-import EditRoutine from '../screens/EditRoutine/EditRoutine'
-import LandingPage from "../screens/LandingPage/LandingPage";
+import {
+  getAllRoutines,
+  postRoutine,
+  deleteRoutine,
+  putRoutine,
+  getOneRoutine,
+} from "../services/routines";
+import { getAllStretches } from "../services/stretches";
+
+import Layout from "../layouts/Layout";
+import Stretches from "../screens/Stretches/Stretches";
+import StretchDetail from "../screens/StretchDetail/StretchDetail";
+import UserProfile from "../screens/UserProfile/UserProfile";
+import EditUserProfile from "../screens/EditUserProfile/EditUserProfile";
+import RoutineDetail from "../screens/RoutineDetail/RoutineDetail";
+import EditRoutine from "../screens/EditRoutine/EditRoutine";
 import Home from "../screens/Home/Home";
 
-export default function MainContainer() {
+export default function MainContainer(props) {
+  const [routines, setRoutines] = useState([]);
+  const [stretches, setStretches] = useState([]);
+  const history = useHistory();
+
+  useEffect(() => {
+    const fetchRoutines = async () => {
+      const routineList = await getAllRoutines();
+      setRoutines(routineList);
+    };
+    fetchRoutines();
+  }, []);
+
+  useEffect(() => {
+    const fetchStretches = async () => {
+      const stretchList = await getAllStretches();
+      setStretches(stretchList);
+    };
+    fetchStretches();
+  }, []);
+
+  const handleRoutineCreate = async (routineData) => {
+    const newRoutine = await postRoutine(routineData);
+    setRoutines((prevState) => [...prevState, newRoutine]);
+    history.push("/routines");
+  };
+
+  const handleRoutineDelete = async (id) => {
+    await deleteRoutine(id);
+    setRoutines((prevState) =>
+      prevState.filter((routineItem) => routineItem.id !== id)
+    );
+  };
+
+  const handleRoutineUpdate = async (id, routineData) => {
+    const updatedRoutine = await putRoutine(id, routineData);
+    setRoutines((prevState) =>
+      prevState.map((routine) => {
+        return routine.id === Number(id) ? updatedRoutine : routine;
+      })
+    );
+    history.push("/routines");
+  };
+
   return (
-    <Switch>
-      <Route path="/stretches">
-        <Stretches />
-      </Route>
-      <Route path="/stretches/:id">
-        <StretchDetail />
-      </Route>
-      <Route path="/users/:id">
-        <UserProfile />
-      </Route>
-      <Route path="/users/:id/edit">
-        <EditUserProfile />
-      </Route>
-      <Route path="/routines/:id">
-        <RoutineDetail />
-      </Route>
-      <Route path="/routines/:id/edit">
-        <EditRoutine />
-      </Route>
-      <Route path="/home">
-        <Home />
-      </Route>
-      <Route path="/">
-        <LandingPage />
-      </Route>
-    </Switch>
+    <div className="mainDiv">
+      <Layout currentUser={props.currentUser} handleLogout={props.handleLogout}>
+        <Switch>
+          <Route path="/stretches">
+            <Stretches stretches={stretches} />
+          </Route>
+          <Route path="/stretches/:id">
+            <StretchDetail stretches={stretches} />
+          </Route>
+          <Route path="/users/:id">
+            <UserProfile currentUser={props.currentUser} />
+          </Route>
+          <Route path="/users/:id/edit">
+            <EditUserProfile currentUser={props.currentUser} />
+          </Route>
+          <Route path="/routines/:id">
+            <RoutineDetail routines={routines} />
+          </Route>
+          <Route path="/routines/:id/edit">
+            <EditRoutine
+              routines={routines}
+              handleRoutineUpdate={handleRoutineUpdate}
+            />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+        </Switch>
+      </Layout>
+    </div>
   );
 }
