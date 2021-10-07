@@ -1,4 +1,4 @@
-import api from './config';
+import api from './api-config';
 
 export const getAllRoutines = async () => {
   const resp = await api.get('/routines');
