@@ -29,3 +29,8 @@ export const addStretchToRoutine = async (stretchId, id) => {
   const resp = await api.put(`/stretches/${stretchId}/routines/${id}`);
   return resp.data;
 };
+
+export const removeStretchFromRoutine = async (stretchId, id) => {
+  const resp = await api.put(`/stretches/${stretchId}/routines/${id}/remove`);
+  return resp.data;
+};
