@@ -35,7 +35,7 @@ export default function StretchDetail(props) {
       <form onSubmit={handleSubmit}>
         <select onChange={handleChange} defaultValue='default'>
           <option disabled value='default'>
-            -- Select a Routines --
+            -- Select a Routine --
           </option>
           {routines.map((routine) => (
             <option value={routine.id}>{routine.name}</option>
