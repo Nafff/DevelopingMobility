@@ -23,9 +23,11 @@ const Demo = styled("div")(({ theme }) => ({
 
 export default function Stretches(props) {
   return (
-    <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+    // <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+    // fix width issue
+    <Box sx={{ flexGrow: 1, width: 1000}}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
             Stretches
           </Typography>
@@ -41,9 +43,7 @@ export default function Stretches(props) {
                     }
                   >
                     <ListItemAvatar>
-                      <Avatar>
-                        <FolderIcon />
-                      </Avatar>
+                    <Avatar alt="Profile Picture" src={stretch.picture_url} />
                     </ListItemAvatar>
                     <ListItemText
                       primary={stretch.name}
