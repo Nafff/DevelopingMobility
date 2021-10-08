@@ -19,11 +19,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const drawerWidth = 240;
 
-const user = {
-  avatar: "/static/images/avatars/avatar_6.png",
-  jobTitle: "Senior Developer",
-  name: "Test User",
-};
+// const user = {
+//   avatar: "/static/images/avatars/avatar_6.png",
+//   jobTitle: "Senior Developer",
+//   name: "Test User",
+// };
 
 export default function Layout(props) {
   const [expanded, setExpanded] = useState(false);
@@ -31,6 +31,17 @@ export default function Layout(props) {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const unauthenticatedOptions = (
+    <>
+      <Typography color="textPrimary" variant="h5">
+        No Current User
+      </Typography>
+      <Typography color="textSecondary" variant="body2">
+        Please Log In
+      </Typography>
+    </>
+  );
 
   return (
     <div>
@@ -97,12 +108,18 @@ export default function Layout(props) {
               }}
               to="/app/account"
             /> */}
-            <Typography color="textPrimary" variant="h5">
-              {user.name}
-            </Typography>
-            <Typography color="textSecondary" variant="body2">
-              {user.jobTitle}
-            </Typography>
+            {props.currentUser ? (
+              <>
+                <Typography color="textPrimary" variant="h5">
+                  {props.currentUser.username}
+                </Typography>
+                <Typography color="textSecondary" variant="body2">
+                  Logged In
+                </Typography>
+              </>
+            ) : (
+              unauthenticatedOptions
+            )}
           </Box>
           <Divider />
           <List>
