@@ -26,6 +26,8 @@ export default function RoutineDetail(props) {
     const stretch = await addStretchToRoutine(selectedStretch, id);
     setRoutine(stretch);
   };
+  
+  // add remove stretch functionality, can't add stretches unless on the edit page
 
   return (
     <div>
@@ -33,7 +35,7 @@ export default function RoutineDetail(props) {
       <form onSubmit={handleSubmit}>
         <select onChange={handleChange} defaultValue='default'>
           <option disabled value='default'>
-            -- Select a Routine --
+            -- Select a Stretch --
           </option>
           {stretches.map((stretch) => (
             <option value={stretch.id}>{stretch.name}</option>
