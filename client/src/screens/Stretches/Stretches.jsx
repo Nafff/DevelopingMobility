@@ -50,7 +50,6 @@ export default function Stretches(props) {
                       secondary={stretch.muscle_worked}
                     />
                   </ListItem>
-                  ,
                 </div>
               ))}
             </List>
