@@ -1,11 +1,11 @@
 class StretchesController < ApplicationController
-  before_action :set_stretch
+  before_action :set_stretch, only: [:show, :update, :destroy]
 
   # GET /stretches
   def index
-    @stretche = Stretch.all
+    @stretches = Stretch.all
 
-    render json: @stretche
+    render json: @stretches
   end
 
   # GET /stretches/1

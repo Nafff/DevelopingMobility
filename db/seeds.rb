@@ -17,3 +17,7 @@ puts "#{User.count} users created"
 @stretch1 = Stretch.create!(name: 'Kneeling Lunge', video_url: 'www.testurl.com', picture_url: 'www.testurl.com', muscle_worked: 'Hamstrings', body_part: 'Legs', description: 'Test Desc')
 
 puts "#{Stretch.count} stretches created"
+
+@routine1 = Routine.create!(name: 'Test Routine', user: @admin)
+
+puts "#{Routine.count} routines created"

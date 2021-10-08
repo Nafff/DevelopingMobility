@@ -67,11 +67,11 @@ export default function MainContainer(props) {
     <div className="mainDiv">
       <Layout currentUser={props.currentUser} handleLogout={props.handleLogout}>
         <Switch>
+          <Route path="/stretches/:id">
+            <StretchDetail routines={routines} />
+          </Route>
           <Route path="/stretches">
             <Stretches stretches={stretches} />
-          </Route>
-          <Route path="/stretches/:id">
-            <StretchDetail stretches={stretches} />
           </Route>
           <Route path="/users/:id">
             <UserProfile currentUser={props.currentUser} />

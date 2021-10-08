@@ -44,14 +44,23 @@ export default function Layout(props) {
           }}
         >
           <Toolbar>
-            <Typography variant="h6" noWrap component="div">
+            <Typography variant="h6" noWrap component="div" marginLeft="auto">
               DevelopingMobility
             </Typography>
+            <img
+              src="https://res.cloudinary.com/dy6xpqkkj/image/upload/c_lfill,g_north,h_140,w_200,y_100/v1633639529/DevelopingMobility/f00225dbda284b8e8d0300962a571784_3_fdiiaz.png"
+              alt="logo"
+            />
           </Toolbar>
         </AppBar>
         <Box
           component="main"
-          sx={{ flexGrow: 1, bgcolor: "background.default", p: 3, ml: `${drawerWidth*2}px`,}}
+          sx={{
+            flexGrow: 1,
+            bgcolor: "background.default",
+            p: 3,
+            ml: `${drawerWidth * 2}px`,
+          }}
         >
           <Toolbar />
           {props.children}
@@ -110,6 +119,9 @@ export default function Layout(props) {
           <Accordion
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
+            sx={{
+              bgcolor: "#8D7C95",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -130,6 +142,9 @@ export default function Layout(props) {
           <Accordion
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
+            sx={{
+              bgcolor: "#8D7C95",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -152,6 +167,9 @@ export default function Layout(props) {
           <Accordion
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
+            sx={{
+              bgcolor: "#8D7C95",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -172,6 +190,9 @@ export default function Layout(props) {
           <Accordion
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
+            sx={{
+              bgcolor: "#8D7C95",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -189,6 +210,9 @@ export default function Layout(props) {
           <Accordion
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
+            sx={{
+              bgcolor: "#8D7C95",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -208,6 +232,9 @@ export default function Layout(props) {
           <Accordion
             expanded={expanded === "panel6"}
             onChange={handleChange("panel6")}
+            sx={{
+              bgcolor: "#8D7C95",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
