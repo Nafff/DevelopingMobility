@@ -80,7 +80,7 @@ export default function MainContainer(props) {
             <EditUserProfile currentUser={props.currentUser} />
           </Route>
           <Route path="/routines/:id">
-            <RoutineDetail routines={routines} />
+            <RoutineDetail stretches={stretches} />
           </Route>
           <Route path="/routines/:id/edit">
             <EditRoutine
