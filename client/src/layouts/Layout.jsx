@@ -9,6 +9,7 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import Avatar from '@mui/material/Avatar';
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -100,7 +101,7 @@ export default function Layout(props) {
           >
             {/* <Avatar
               component={RouterLink}
-              src={user.avatar}
+              src={props.currentUser.profile_picture}
               sx={{
                 cursor: "pointer",
                 width: 64,
@@ -108,6 +109,9 @@ export default function Layout(props) {
               }}
               to="/app/account"
             /> */}
+            {props.currentUser ? (
+              <Avatar alt="Profile Picture" src={props.currentUser.profile_picture} />
+            ) : ( <></>)}
             {props.currentUser ? (
               <>
                 <Typography color="textPrimary" variant="h5">
