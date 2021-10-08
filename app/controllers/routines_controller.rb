@@ -50,6 +50,16 @@ class RoutinesController < ApplicationController
     render json: @routine, include: :stretches
   end
 
+  # removing stretch from routine method goes here
+  def remove_stretch_from_routine
+    @routine = Routine.find(params[:id])
+    @stretch = Stretch.find(params[:stretch_id])
+
+    @routine.stretches = @routine.stretches.reject { @stretch }
+
+    render json: @routine, include: :stretches
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_routine
