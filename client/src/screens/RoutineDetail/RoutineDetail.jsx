@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { addStretchToRoutine, getOneRoutine } from '../../services/routines';
+import { removeStretchFromRoutine, getOneRoutine } from '../../services/routines';
 
 export default function RoutineDetail(props) {
   const [routine, setRoutine] = useState(null);
@@ -23,11 +23,11 @@ export default function RoutineDetail(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const stretch = await addStretchToRoutine(selectedStretch, id);
-    setRoutine(stretch);
+    const routine = await removeStretchFromRoutine(selectedStretch, id);
+    setRoutine(routine);
   };
   
-  // add remove stretch functionality, can't add stretches unless on the edit page
+  // add remove stretch works on back end, stretch isn't removed from option on front end. maybe once changed to list it will work
 
   return (
     <div>
@@ -41,7 +41,7 @@ export default function RoutineDetail(props) {
             <option value={stretch.id}>{stretch.name}</option>
           ))}
         </select>
-        <button>Add</button>
+        <button>Remove</button>
       </form>
     </div>
   )
