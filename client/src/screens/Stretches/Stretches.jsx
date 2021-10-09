@@ -1,6 +1,7 @@
 import React from "react";
 
 import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -25,37 +26,42 @@ export default function Stretches(props) {
   return (
     // <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
     // fix width issue
-    <Box sx={{ flexGrow: 1, width: 1000}}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={4}>
-          <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-            Stretches
-          </Typography>
-          <Demo>
-            <List>
-              {props.stretches.map((stretch) => (
-                <div>
-                  <ListItem
-                    secondaryAction={
-                      <IconButton edge="end" aria-label="delete">
-                        <DeleteIcon />
-                      </IconButton>
-                    }
-                  >
-                    <ListItemAvatar>
-                    <Avatar alt="Profile Picture" src={stretch.picture_url} />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={stretch.name}
-                      secondary={stretch.muscle_worked}
-                    />
-                  </ListItem>
-                </div>
-              ))}
-            </List>
-          </Demo>
+    <Paper style={{maxHeight: 500, overflow: 'auto'}}>
+      <Box sx={{ flexGrow: 1, maxWidth: 1000 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4}>
+            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+              Stretches
+            </Typography>
+            <Demo>
+              <List>
+                {props.stretches.map((stretch) => (
+                  <div>
+                    <ListItem
+                      secondaryAction={
+                        <IconButton edge="end" aria-label="delete">
+                          <DeleteIcon />
+                        </IconButton>
+                      }
+                    >
+                      <ListItemAvatar>
+                        <Avatar
+                          alt="Profile Picture"
+                          src={stretch.picture_url}
+                        />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={stretch.name}
+                        secondary={stretch.muscle_worked}
+                      />
+                    </ListItem>
+                  </div>
+                ))}
+              </List>
+            </Demo>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </Paper>
   );
 }

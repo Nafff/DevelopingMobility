@@ -14,7 +14,9 @@ Stretch.destroy_all
 
 puts "#{User.count} users created"
 
-@stretch1 = Stretch.create!(name: 'Kneeling Lunge', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Hamstrings', body_part: 'Legs', description: 'Test Desc')
+10.times do
+  @stretch1 = Stretch.create!(name: 'Kneeling Lunge', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Hamstrings', body_part: 'Legs', description: 'Test Desc')
+end
 
 puts "#{Stretch.count} stretches created"
 

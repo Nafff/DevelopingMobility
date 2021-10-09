@@ -9,7 +9,7 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import Avatar from '@mui/material/Avatar';
+import Avatar from "@mui/material/Avatar";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -17,14 +17,9 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Link from "@mui/material/Link";
 
 const drawerWidth = 240;
-
-// const user = {
-//   avatar: "/static/images/avatars/avatar_6.png",
-//   jobTitle: "Senior Developer",
-//   name: "Test User",
-// };
 
 export default function Layout(props) {
   const [expanded, setExpanded] = useState(false);
@@ -39,7 +34,7 @@ export default function Layout(props) {
         No Current User
       </Typography>
       <Typography color="textSecondary" variant="body2">
-        Please Log In
+        <Link href="/login">Login</Link>
       </Typography>
     </>
   );
@@ -56,11 +51,17 @@ export default function Layout(props) {
           }}
         >
           <Toolbar>
-            <Typography variant="h6" noWrap component="div" marginLeft="auto">
+            <Typography
+              variant="h4"
+              noWrap
+              component="div"
+              marginLeft="auto"
+              fontFamily="'Didact Gothic', sans-serif;"
+            >
               DevelopingMobility
             </Typography>
             <img
-              src="https://res.cloudinary.com/dy6xpqkkj/image/upload/c_lfill,g_north,h_140,w_200,y_100/v1633639529/DevelopingMobility/f00225dbda284b8e8d0300962a571784_3_fdiiaz.png"
+              src="https://res.cloudinary.com/dy6xpqkkj/image/upload/c_fill,g_north,h_95,w_150,x_0,y_0/v1633639529/DevelopingMobility/f00225dbda284b8e8d0300962a571784_3_fdiiaz.png"
               alt="logo"
             />
           </Toolbar>
@@ -110,8 +111,13 @@ export default function Layout(props) {
               to="/app/account"
             /> */}
             {props.currentUser ? (
-              <Avatar alt="Profile Picture" src={props.currentUser.profile_picture} />
-            ) : ( <></>)}
+              <Avatar
+                alt="Profile Picture"
+                src={props.currentUser.profile_picture}
+              />
+            ) : (
+              <></>
+            )}
             {props.currentUser ? (
               <>
                 <Typography color="textPrimary" variant="h5">
@@ -127,14 +133,16 @@ export default function Layout(props) {
           </Box>
           <Divider />
           <List>
-            {["Getting Started", "All Stretches"].map((text, index) => (
-              <ListItem button key={text}>
-                {/* <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon> */}
-                <ListItemText primary={text} />
+            <Link href="/home">
+              <ListItem button>
+                <ListItemText primary="Getting Started" />
               </ListItem>
-            ))}
+            </Link>
+            <Link href="/stretches">
+              <ListItem button>
+                <ListItemText primary="All Stretches" />
+              </ListItem>
+            </Link>
           </List>
           <Divider />
           <Accordion
