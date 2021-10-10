@@ -34,6 +34,9 @@ export default function RoutineDetail(props) {
   const [selectedStretch, setSelectedStretch] = useState("");
   const { id } = useParams();
   const { stretches } = props;
+  const [stretchesInRoutine, setstretchesInRoutine] = useState(
+    new Array(stretches.length).fill(false)
+  );
 
   useEffect(() => {
     const fetchRoutine = async () => {
@@ -42,6 +45,11 @@ export default function RoutineDetail(props) {
     };
     fetchRoutine();
   }, [id]);
+
+  routine?.stretches.map((stretch) => {
+    const index = allIngredients.indexOf(ingredient);
+    ingredientsState[index] = true;
+  });
 
   // const handleChange = (e) => {
   //   const { value } = e.target;
