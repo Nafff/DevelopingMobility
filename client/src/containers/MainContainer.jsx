@@ -84,23 +84,23 @@ export default function MainContainer(props) {
   };
 
   const handleSidebarStretchChange = (e) => {
-    if (e.target.value !== "") {
-      const results = stretches.filter((stretch) => {
-        return stretch.body_part
-          .toLowerCase()
-          .startsWith(e.target.value.toLowerCase());
-        // Use the toLowerCase() method to make it case-insensitive
-      });
-      setFilteredStretches(results);
-    } else {
-      setFilteredStretches(stretches);
-      // If the text field is empty, show all users
-    }
+    const results = stretches.filter((stretch) => {
+      return stretch.body_part
+        .toLowerCase()
+        .startsWith(e.target.value.toLowerCase());
+      // Use the toLowerCase() method to make it case-insensitive
+    });
+    setFilteredStretches(results);
+    setInput(e.target.value);
   };
 
   return (
     <div className="mainDiv">
-      <Layout currentUser={props.currentUser} handleLogout={props.handleLogout} handleSidebarStretchChange={handleSidebarStretchChange}>
+      <Layout
+        currentUser={props.currentUser}
+        handleLogout={props.handleLogout}
+        handleSidebarStretchChange={handleSidebarStretchChange}
+      >
         <Switch>
           <Route path="/stretches/:id">
             <StretchDetail routines={routines} />

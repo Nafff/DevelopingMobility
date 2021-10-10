@@ -100,7 +100,6 @@ export default function Layout(props) {
               p: 2,
             }}
           >
- 
             {props.currentUser ? (
               <Avatar
                 alt="Profile Picture"
@@ -264,9 +263,15 @@ export default function Layout(props) {
               <Typography sx={{ width: "33%", flexShrink: 0 }}>Legs</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <List>
-                <ListItem>Hamstrings</ListItem>
-              </List>
+              <ListItem
+                button
+                value="Hamstrings"
+                onClick={props.handleSidebarStretchChange}
+              >
+                <Link href="/stretches">
+                  <ListItemText primary="Hamstrings" />
+                </Link>
+              </ListItem>
             </AccordionDetails>
           </Accordion>
         </Drawer>
