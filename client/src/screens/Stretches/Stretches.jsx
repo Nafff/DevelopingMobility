@@ -41,10 +41,10 @@ export default function Stretches(props) {
                   maxWidth: "100%",
                 }}
               >
-                <TextField fullWidth label="Name a stretch" id="fullWidth" />
+                <TextField fullWidth label="Name a stretch" id="fullWidth" value={props.input} onChange={props.handleSearchStretchChange}/>
               </Box>
               <List>
-                {props.stretches.map((stretch) => (
+                {props.fitleredStretches.map((stretch) => (
                   <div>
                     <ListItem
                       secondaryAction={

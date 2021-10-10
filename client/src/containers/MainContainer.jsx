@@ -22,6 +22,8 @@ import Home from "../screens/Home/Home";
 export default function MainContainer(props) {
   const [routines, setRoutines] = useState([]);
   const [stretches, setStretches] = useState([]);
+  const [input, setInput] = useState([]);
+  const [fitleredStretches, setFilteredStretches] = useState(stretches);
   const history = useHistory();
 
   useEffect(() => {
@@ -63,6 +65,21 @@ export default function MainContainer(props) {
     history.push("/routines");
   };
 
+  const handleSearchStretchChange = (e) => {
+    if (e.target.value !== '') {
+      const results = stretches.filter((stretch) => {
+        return stretch.name.toLowerCase().startsWith(e.target.value.toLowerCase());
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setFilteredStretches(results);
+    } else {
+      setFilteredStretches(stretches);
+      // If the text field is empty, show all users
+    }
+
+    setInput(e.target.value);
+  }
+
   return (
     <div className="mainDiv">
       <Layout currentUser={props.currentUser} handleLogout={props.handleLogout}>
@@ -71,7 +88,7 @@ export default function MainContainer(props) {
             <StretchDetail routines={routines} />
           </Route>
           <Route path="/stretches">
-            <Stretches stretches={stretches} />
+            <Stretches fitleredStretches={fitleredStretches} input={input} handleSearchStretchChange={handleSearchStretchChange} />
           </Route>
           <Route path="/users/:id">
             <UserProfile currentUser={props.currentUser} />
@@ -80,12 +97,19 @@ export default function MainContainer(props) {
             <EditUserProfile currentUser={props.currentUser} />
           </Route>
           <Route path="/routines/:id">
-            <RoutineDetail stretches={stretches} />
+            <RoutineDetail
+              routines={routines}
+              handleRoutineUpdate={handleRoutineUpdate}
+              stretches={stretches}
+              setStretches={setStretches}
+            />
           </Route>
           <Route path="/routines/:id/edit">
             <EditRoutine
               routines={routines}
               handleRoutineUpdate={handleRoutineUpdate}
+              stretches={stretches}
+              setStretches={setStretches}
             />
           </Route>
           <Route path="/home">
