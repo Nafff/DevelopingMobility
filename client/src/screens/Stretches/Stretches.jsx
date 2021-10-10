@@ -18,6 +18,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import FolderIcon from "@mui/icons-material/Folder";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Link from "@mui/material/Link";
 
 const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -45,7 +46,7 @@ export default function Stretches(props) {
               </Box>
               <List>
                 {props.fitleredStretches.map((stretch) => (
-                  <div>
+                  <Link href={`/stretches/${stretch.id}`}>
                     <ListItem
                       secondaryAction={
                         <IconButton edge="end" aria-label="delete">
@@ -64,7 +65,7 @@ export default function Stretches(props) {
                         secondary={stretch.muscle_worked}
                       />
                     </ListItem>
-                  </div>
+                  </Link>
                 ))}
               </List>
             </Demo>

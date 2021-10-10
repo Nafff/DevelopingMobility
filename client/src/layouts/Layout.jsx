@@ -18,6 +18,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 const drawerWidth = 240;
 
@@ -31,11 +33,16 @@ export default function Layout(props) {
   const unauthenticatedOptions = (
     <>
       <Typography color="textPrimary" variant="h5">
-        No Current User
+        Welcome
       </Typography>
-      <Typography color="textSecondary" variant="body2">
-        <Link href="/login">Login</Link>
-      </Typography>
+      <Stack spacing={2} direction="row">
+      <Link href={`/login`}>
+          <Button variant="outlined">Log In</Button>
+        </Link>
+        <Link href={`/register`}>
+          <Button variant="outlined">Sign Up</Button>
+        </Link>
+      </Stack>
     </>
   );
 
@@ -106,16 +113,26 @@ export default function Layout(props) {
                 src={props.currentUser.profile_picture}
               />
             ) : (
-              <></>
+              <>
+                <Avatar
+                  alt="Default Profile Picture"
+                  src={"https://res.cloudinary.com/dy6xpqkkj/image/upload/c_lfill,g_north,h_140,w_200,x_0/v1633639529/DevelopingMobility/f00225dbda284b8e8d0300962a571784_2_sru2dk.png"}
+                />
+              </>
             )}
             {props.currentUser ? (
               <>
                 <Typography color="textPrimary" variant="h5">
                   {props.currentUser.username}
                 </Typography>
-                <Typography color="textSecondary" variant="body2">
-                  Logged In
-                </Typography>
+                <Stack spacing={2} direction="row">
+                  <Button variant="outlined" onClick={props.handleLogout}>
+                    Log Out
+                  </Button>
+                  <Link href={`/users/${props.currentUser.id}`}>
+                    <Button variant="outlined">Your Dashboard</Button>
+                  </Link>
+                </Stack>
               </>
             ) : (
               unauthenticatedOptions

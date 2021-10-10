@@ -112,19 +112,11 @@ export default function MainContainer(props) {
               handleSearchStretchChange={handleSearchStretchChange}
             />
           </Route>
-          <Route path="/users/:id">
-            <UserProfile currentUser={props.currentUser} />
-          </Route>
           <Route path="/users/:id/edit">
             <EditUserProfile currentUser={props.currentUser} />
           </Route>
-          <Route path="/routines/:id">
-            <RoutineDetail
-              routines={routines}
-              handleRoutineUpdate={handleRoutineUpdate}
-              stretches={stretches}
-              setStretches={setStretches}
-            />
+          <Route path="/users/:id">
+            <UserProfile currentUser={props.currentUser} routines={routines}/>
           </Route>
           <Route path="/routines/:id/edit">
             <EditRoutine
@@ -134,8 +126,16 @@ export default function MainContainer(props) {
               setStretches={setStretches}
             />
           </Route>
+          <Route path="/routines/:id">
+            <RoutineDetail
+              routines={routines}
+              handleRoutineUpdate={handleRoutineUpdate}
+              stretches={stretches}
+              setStretches={setStretches}
+            />
+          </Route>
           <Route path="/home">
-            <Home />
+            <Home currentUser={props.currentUser}/>
           </Route>
         </Switch>
       </Layout>
