@@ -100,16 +100,7 @@ export default function Layout(props) {
               p: 2,
             }}
           >
-            {/* <Avatar
-              component={RouterLink}
-              src={props.currentUser.profile_picture}
-              sx={{
-                cursor: "pointer",
-                width: 64,
-                height: 64,
-              }}
-              to="/app/account"
-            /> */}
+ 
             {props.currentUser ? (
               <Avatar
                 alt="Profile Picture"
