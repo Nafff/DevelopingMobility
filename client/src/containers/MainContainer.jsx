@@ -23,7 +23,7 @@ export default function MainContainer(props) {
   const [routines, setRoutines] = useState([]);
   const [stretches, setStretches] = useState([]);
   const [input, setInput] = useState([]);
-  const [fitleredStretches, setFilteredStretches] = useState(stretches);
+  const [fitleredStretches, setFilteredStretches] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -38,6 +38,7 @@ export default function MainContainer(props) {
     const fetchStretches = async () => {
       const stretchList = await getAllStretches();
       setStretches(stretchList);
+      setFilteredStretches(stretchList);
     };
     fetchStretches();
   }, []);
@@ -66,9 +67,11 @@ export default function MainContainer(props) {
   };
 
   const handleSearchStretchChange = (e) => {
-    if (e.target.value !== '') {
+    if (e.target.value !== "") {
       const results = stretches.filter((stretch) => {
-        return stretch.name.toLowerCase().startsWith(e.target.value.toLowerCase());
+        return stretch.name
+          .toLowerCase()
+          .startsWith(e.target.value.toLowerCase());
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFilteredStretches(results);
@@ -78,17 +81,36 @@ export default function MainContainer(props) {
     }
 
     setInput(e.target.value);
-  }
+  };
+
+  const handleSidebarStretchChange = (e) => {
+    if (e.target.value !== "") {
+      const results = stretches.filter((stretch) => {
+        return stretch.body_part
+          .toLowerCase()
+          .startsWith(e.target.value.toLowerCase());
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setFilteredStretches(results);
+    } else {
+      setFilteredStretches(stretches);
+      // If the text field is empty, show all users
+    }
+  };
 
   return (
     <div className="mainDiv">
-      <Layout currentUser={props.currentUser} handleLogout={props.handleLogout}>
+      <Layout currentUser={props.currentUser} handleLogout={props.handleLogout} handleSidebarStretchChange={handleSidebarStretchChange}>
         <Switch>
           <Route path="/stretches/:id">
             <StretchDetail routines={routines} />
           </Route>
           <Route path="/stretches">
-            <Stretches fitleredStretches={fitleredStretches} input={input} handleSearchStretchChange={handleSearchStretchChange} />
+            <Stretches
+              fitleredStretches={fitleredStretches}
+              input={input}
+              handleSearchStretchChange={handleSearchStretchChange}
+            />
           </Route>
           <Route path="/users/:id">
             <UserProfile currentUser={props.currentUser} />

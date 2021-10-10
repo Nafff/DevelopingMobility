@@ -265,7 +265,7 @@ export default function Layout(props) {
             </AccordionSummary>
             <AccordionDetails>
               <List>
-                <ListItem>Test</ListItem>
+                <ListItem>Hamstrings</ListItem>
               </List>
             </AccordionDetails>
           </Accordion>
