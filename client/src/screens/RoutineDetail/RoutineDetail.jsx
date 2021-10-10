@@ -43,16 +43,16 @@ export default function RoutineDetail(props) {
     fetchRoutine();
   }, [id]);
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setSelectedStretch(value);
-  };
+  // const handleChange = (e) => {
+  //   const { value } = e.target;
+  //   setSelectedStretch(value);
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const routine = await removeStretchFromRoutine(selectedStretch, id);
-    setRoutine(routine);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const routine = await removeStretchFromRoutine(selectedStretch, id);
+  //   setRoutine(routine);
+  // };
 
   const handleRemove = async (stretch_id) => {
     const routine = await removeStretchFromRoutine(stretch_id, id);
