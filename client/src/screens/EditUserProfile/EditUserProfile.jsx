@@ -24,7 +24,7 @@ import TextField from "@mui/material/TextField";
 export default function EditUserProfile(props) {
   const [formData, setFormData] = useState({
     username: "",
-    age: "",
+    email: "",
     profile_picture: "",
     description: "",
   });
@@ -35,7 +35,7 @@ export default function EditUserProfile(props) {
     const prefillFormData = () => {
       setFormData({
         username: props.currentUser?.username,
-        age: props.currentUser?.age,
+        email: props.currentUser?.email,
         profile_picture: props.currentUser?.profile_picture,
         description: props.currentUser?.description,
       });
@@ -47,18 +47,18 @@ export default function EditUserProfile(props) {
   }, [props.currentUser, id]);
 
   const handleChange = (e) => {
-    const { label, value } = e.target;
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [label]: value,
+      [name]: value,
     }));
   };
-
-  console.log(formData);
 
   if (!isLoaded) {
     return <h1>Loading...</h1>;
   }
+
+  console.log(formData)
 
   return (
     <Grid item xs={12}>
@@ -78,6 +78,7 @@ export default function EditUserProfile(props) {
             required
             id="filled-required"
             label="Username"
+            name="username"
             defaultValue={`${formData?.username}`}
             variant="filled"
             onChange={handleChange}
@@ -85,8 +86,9 @@ export default function EditUserProfile(props) {
           <TextField
             required
             id="filled-required"
-            label="Age"
-            defaultValue={props.currentUser?.age}
+            label="Email"
+            name="email"
+            defaultValue={`${formData?.email}`}
             variant="filled"
             onChange={handleChange}
           />
