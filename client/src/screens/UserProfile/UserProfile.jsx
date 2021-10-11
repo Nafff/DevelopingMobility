@@ -18,48 +18,50 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 export default function UserProfile(props) {
-  console.log(props.currentUser);
 
   return (
-    <Grid item xs={12}>
-      <Paper elevation={3}>
-        <h1>{props.currentUser?.username}</h1>
-        <Avatar
-          alt="Remy Sharp"
-          src={props.currentUser?.profile_picture}
-          sx={{ width: 100, height: 100 }}
-        />
-        <h3>{props.currentUser?.age}</h3>
-        <h3>{props.currentUser?.description}</h3>
-        <Link href={`/users/${props.currentUser?.id}/edit`}>
-          <Button variant="outlined">Edit Profile</Button>
-        </Link>
-      </Paper>
-      <Paper>
-        <List>
-          {props.routines
-            ?.filter((routine) => routine.user_id === props.currentUser?.id)
-            .map((routine) => (
-              <div>
-                <Link href={`/routines/${routine.id}`}>
-                  <ListItem
-                    secondaryAction={
-                      <IconButton edge="end" aria-label="delete">
-                        <DeleteIcon />
-                      </IconButton>
-                    }
-                  >
-                    <ListItemText primary={routine.name} />
-                  </ListItem>
-                </Link>
-              </div>
-            ))}
-        </List>
-
-        <Link href={`/routines/${props.routines.length + 1}/edit`}>
-          <Button variant="outlined">New Routine</Button>
-        </Link>
-      </Paper>
-    </Grid>
+    <>
+      <Grid item xs={12}>
+        <Paper elevation={3}>
+          <h1>{props.currentUser?.username}</h1>
+          <Avatar
+            alt="Remy Sharp"
+            src={props.currentUser?.profile_picture}
+            sx={{ width: 100, height: 100 }}
+          />
+          <h3>{props.currentUser?.age}</h3>
+          <h3>{props.currentUser?.description}</h3>
+          <Link href={`/users/${props.currentUser?.id}/edit`}>
+            <Button variant="outlined">Edit Profile</Button>
+          </Link>
+        </Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper>
+          <List>
+            {props.routines
+              ?.filter((routine) => routine.user_id === props.currentUser?.id)
+              .map((routine) => (
+                <div>
+                  <Link href={`/routines/${routine.id}`}>
+                    <ListItem
+                      secondaryAction={
+                        <IconButton edge="end" aria-label="delete">
+                          <DeleteIcon />
+                        </IconButton>
+                      }
+                    >
+                      <ListItemText primary={routine.name} />
+                    </ListItem>
+                  </Link>
+                </div>
+              ))}
+          </List>
+          <Link href={`/routines/${props.routines.length + 1}/edit`}>
+            <Button variant="outlined">New Routine</Button>
+          </Link>
+        </Paper>
+      </Grid>
+    </>
   );
 }
