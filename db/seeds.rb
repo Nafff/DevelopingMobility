@@ -44,6 +44,8 @@ Stretch.create!(name: 'Behind-the-back Elbow Grip', video_url: 'https://www.yout
 
 Stretch.create!(name: 'Wall Angel', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Serratus Anterior', body_part: 'Chest', description: 'Stand with your feet 6-8 inches away from the wall. Rest your butt, back, shoulders, and head against the wall. Brace your core with a neutral spine. Reach your arms straight up and put them on the wall overhead, aiming to get the back of your hands to touch the wall in a "V" position. Begin to bend your elbows as your slide your hands down the wall until your hands are just above your shoulders. Lower only as much as you can slowly and hold at the lowest point for 5-10 seconds. Return to starting position and repeat.')
 
+Stretch.create!(name: 'Seated Glute Stretch', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Gluteus Maximus', body_part: 'Legs', description: 'Sit on the floor and extend your legs out in front of you. Keeping your back straight and core braced, lift your left leg and place your left ankle on your right knee. Lean slightly forward to deepen the stretch. Hold for 15-30 seconds then repeat on the opposite side.')
+
 Stretch.create!(name: 'Kneeling Lunge', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Hamstrings', body_part: 'Legs', description: 'Test Desc')
 
 puts "#{Stretch.count} stretches created"
