@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Redirect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 
 import {
@@ -71,7 +71,7 @@ export default function MainContainer(props) {
     );
     history.push(`/routines/${id}`);
   };
-  
+
   const handleUserUpdate = async (id, userData) => {
     await putUser(id, userData);
     history.push(`/users/${id}`);
@@ -80,9 +80,9 @@ export default function MainContainer(props) {
   const handleSearchStretchChange = (e) => {
     if (e.target.value !== "") {
       const results = stretches.filter((stretch) => {
-        return stretch.name
+        return stretch.muscle_worked
           .toLowerCase()
-          .startsWith(e.target.value.toLowerCase());
+          .includes(e.target.value.toLowerCase());
       });
       setFilteredStretches(results);
     } else {
@@ -93,13 +93,19 @@ export default function MainContainer(props) {
   };
 
   const handleSidebarStretchChange = (e) => {
-    const results = stretches.filter((stretch) => {
-      return stretch.body_part
-        .toLowerCase()
-        .startsWith(e.target.value.toLowerCase());
-    });
-    setFilteredStretches(results);
+    if (e.target.value !== "") {
+      const results = stretches.filter((stretch) => {
+        return stretch.muscle_worked
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+      });
+      setFilteredStretches(results);
+    } else {
+      setFilteredStretches(stretches);
+    }
+
     setInput(e.target.value);
+    history.push(`/stretches`);
   };
 
   return (
@@ -119,10 +125,14 @@ export default function MainContainer(props) {
                 fitleredStretches={fitleredStretches}
                 input={input}
                 handleSearchStretchChange={handleSearchStretchChange}
+                routines={routines}
               />
             </Route>
             <Route path="/users/:id/edit">
-              <EditUserProfile currentUser={props.currentUser} handleUserUpdate={handleUserUpdate}/>
+              <EditUserProfile
+                currentUser={props.currentUser}
+                handleUserUpdate={handleUserUpdate}
+              />
             </Route>
             <Route path="/users/:id">
               <UserProfile

@@ -40,17 +40,6 @@ export default function RoutineDetail(props) {
     fetchRoutine();
   }, [id]);
 
-  // const handleChange = (e) => {
-  //   const { value } = e.target;
-  //   setSelectedStretch(value);
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const routine = await removeStretchFromRoutine(selectedStretch, id);
-  //   setRoutine(routine);
-  // };
-
   const handleRemove = async (stretch_id) => {
     const routine = await removeStretchFromRoutine(stretch_id, id);
     setRoutine(routine);
@@ -69,7 +58,7 @@ export default function RoutineDetail(props) {
             </Typography>
             <TextField
               fullWidth
-              label="Name a stretch"
+              label="Name a muscle"
               id="fullWidth"
               value={props.input}
               onChange={props.handleSearchStretchChange}

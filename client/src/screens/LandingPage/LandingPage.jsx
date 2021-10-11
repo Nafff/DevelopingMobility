@@ -114,7 +114,7 @@ export default function LandingPage() {
                   spacing={2}
                   justifyContent="center"
                 >
-                  <Link href="/home">
+                  <Link href="/stretches">
                     <Button variant="contained">Take a look around</Button>
                   </Link>
                   <Stack direction="row" spacing={2} justifyContent="center">

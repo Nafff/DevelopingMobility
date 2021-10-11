@@ -9,9 +9,10 @@ import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
-import Chip from "@mui/material/Chip";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 
 export default function StretchDetail(props) {
   const [stretch, setStretch] = useState(null);
@@ -34,68 +35,51 @@ export default function StretchDetail(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const stretch = await addStretchToRoutine(selectedRoutine, id);
-    setStretch(stretch);
+    await addStretchToRoutine(selectedRoutine, id);
   };
 
   return (
     <>
-      <Paper elevation={3} sx={{padding: 3}}>
-        <h3>{stretch?.name}</h3>
-        <ReactPlayer url={stretch?.video_url} />
-      </Paper>
-      <Paper elevation={3} sx={{padding: 3}}>
-        <div>
-          <Stack spacing={2} direction="row">
-            <Avatar
-              alt="Remy Sharp"
-              src={stretch?.picture_url}
-              sx={{ width: 200, height: 200 }}
-            />
-            <h4>{stretch?.muscle_worked}</h4>
-          </Stack>
-          <p>{stretch?.description}</p>
-          <Stack spacing={2} direction="row">
-            <Button variant="contained">Favorite</Button>
-          </Stack>
-          <form onSubmit={() => handleSubmit}>
-            <select onChange={handleChange} defaultValue="default">
-              <option disabled value="default">
-                -- Select a Routine --
-              </option>
-              {routines.map((routine) => (
-                <option value={routine.id}>{routine.name}</option>
-              ))}
-            </select>
-            <button>Add</button>
-          </form>
-          <Autocomplete
-            multiple
-            id="tags-filled"
-            options={routines?.map((routine) => routine.name)}
-            // defaultValue={routines?.filter(routine => routine.stretches.includes(stretch)).map(routine => routine.name)}
-            // defaultValue={[top100Films[13].title]}
-            freeSolo
-            renderTags={(value, getTagProps) =>
-              value.map((option, index) => (
-                <Chip
-                  variant="outlined"
-                  label={option}
-                  {...getTagProps({ index })}
-                />
-              ))
-            }
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                variant="filled"
-                label="freeSolo"
-                placeholder="Favorites"
+      <Stack spacing={2} direction="column">
+        <Paper elevation={3} sx={{ padding: 3 }}>
+          <h3>{stretch?.name}</h3>
+          <ReactPlayer url={stretch?.video_url} />
+        </Paper>
+        <Paper elevation={3} sx={{ padding: 3 }}>
+          <div>
+            <Stack spacing={2} direction="column">
+              <Avatar
+                alt="Stretch Picture"
+                src={stretch?.picture_url}
+                sx={{ width: 200, height: 200 }}
               />
-            )}
-          />
-        </div>
-      </Paper>
+              <h4>{stretch?.muscle_worked}</h4>
+            </Stack>
+            <p>{stretch?.description}</p>
+            <form onSubmit={handleSubmit}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Add to Routine
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  // value={selectedRoutine}
+                  label="Add to Routine"
+                  onChange={handleChange}
+                >
+                  {routines?.map((routine) => (
+                    <MenuItem value={routine.id}>{routine.name}</MenuItem>
+                  ))}
+                </Select>
+                <Button type="submit" variant="contained">
+                  Add
+                </Button>
+              </FormControl>
+            </form>
+          </div>
+        </Paper>
+      </Stack>
     </>
   );
 }

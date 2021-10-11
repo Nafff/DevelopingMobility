@@ -98,7 +98,7 @@ export default function RoutineDetail(props) {
               />
               <TextField
                 fullWidth
-                label="Name a stretch"
+                label="Name a muscle"
                 id="fullWidth"
                 value={props.input}
                 onChange={props.handleSearchStretchChange}

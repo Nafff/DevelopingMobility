@@ -22,7 +22,12 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
-const drawerWidth = 240;
+const drawerWidth = {
+  width: '240px',
+  '@media(minWidth: 780px)' : {
+    width: '120px'
+  }
+}
 
 export default function Layout(props) {
   const [expanded, setExpanded] = useState(false);
@@ -134,12 +139,18 @@ export default function Layout(props) {
           </Box>
           <Divider />
           <List>
-            <Link href="/home">
+            <Link
+              href="/welcome"
+              sx={{ color: "inherit", textDecoration: "inherit" }}
+            >
               <ListItem button>
                 <ListItemText primary="Getting Started" />
               </ListItem>
             </Link>
-            <Link href="/stretches">
+            <Link
+              href="/stretches"
+              sx={{ color: "inherit", textDecoration: "inherit" }}
+            >
               <ListItem button>
                 <ListItemText primary="All Stretches" />
               </ListItem>
@@ -159,14 +170,17 @@ export default function Layout(props) {
               id="panel1bh-header"
             >
               <Typography sx={{ width: "33%", flexShrink: 0 }}>Neck</Typography>
-              {/* <Typography sx={{ color: "text.secondary" }}>
-                  I am an accordion
-                </Typography> */}
             </AccordionSummary>
             <AccordionDetails>
-              <List>
-                <ListItem>Test</ListItem>
-              </List>
+              <ListItem>
+                <Button
+                  button
+                  value="Levator Scapulae"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Levator Scapulae
+                </Button>
+              </ListItem>
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -184,14 +198,26 @@ export default function Layout(props) {
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
                 Shoulders
               </Typography>
-              {/* <Typography sx={{ color: "text.secondary" }}>
-                  You are currently not an owner
-                </Typography> */}
             </AccordionSummary>
             <AccordionDetails>
-              <List>
-                <ListItem>Test</ListItem>
-              </List>
+              <ListItem>
+                <Button
+                  button
+                  value="Rotator Cuffs"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Rotator Cuffs
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button
+                  button
+                  value="Anterior Deltoids"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Anterior Deltoids
+                </Button>
+              </ListItem>
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -207,13 +233,45 @@ export default function Layout(props) {
               id="panel3bh-header"
             >
               <Typography sx={{ width: "33%", flexShrink: 0 }}>Back</Typography>
-              {/* <Typography sx={{ color: "text.secondary" }}>
-                  Filtering has been entirely disabled for whole web server
-                </Typography> */}
             </AccordionSummary>
             <AccordionDetails>
               <List>
-                <ListItem>Test</ListItem>
+                <ListItem>
+                  <Button
+                    button
+                    value="Trapezius"
+                    onClick={props.handleSidebarStretchChange}
+                  >
+                    Trapezius
+                  </Button>
+                </ListItem>
+                <ListItem>
+                  <Button
+                    button
+                    value="Latissimus Dorsi"
+                    onClick={props.handleSidebarStretchChange}
+                  >
+                    Latissimus Dorsi
+                  </Button>
+                </ListItem>
+                <ListItem>
+                  <Button
+                    button
+                    value="Rhomboids"
+                    onClick={props.handleSidebarStretchChange}
+                  >
+                    Rhomboids
+                  </Button>
+                </ListItem>
+                <ListItem>
+                  <Button
+                    button
+                    value="Erector Spine"
+                    onClick={props.handleSidebarStretchChange}
+                  >
+                    Erector Spine
+                  </Button>
+                </ListItem>
               </List>
             </AccordionDetails>
           </Accordion>
@@ -232,9 +290,24 @@ export default function Layout(props) {
               <Typography sx={{ width: "33%", flexShrink: 0 }}>Arms</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <List>
-                <ListItem>Test</ListItem>
-              </List>
+              <ListItem>
+                <Button
+                  button
+                  value="Biceps"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Biceps
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button
+                  button
+                  value="Triceps"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Triceps
+                </Button>
+              </ListItem>
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -254,9 +327,24 @@ export default function Layout(props) {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <List>
-                <ListItem>Test</ListItem>
-              </List>
+              <ListItem>
+                <Button
+                  button
+                  value="Pectoral"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Pectoral
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button
+                  button
+                  value="Serratus Anterior"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Serratus Anterior
+                </Button>
+              </ListItem>
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -274,14 +362,32 @@ export default function Layout(props) {
               <Typography sx={{ width: "33%", flexShrink: 0 }}>Legs</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <ListItem
-                button
-                value="Hamstrings"
-                onClick={props.handleSidebarStretchChange}
-              >
-                <Link href="/stretches">
-                  <ListItemText primary="Hamstrings" />
-                </Link>
+              <ListItem>
+                <Button
+                  button
+                  value="Hamstrings"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Hamstrings
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button
+                  button
+                  value="Quadriceps"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Quadriceps
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button
+                  button
+                  value="Gluteus Maximus"
+                  onClick={props.handleSidebarStretchChange}
+                >
+                  Gluteus Maximus
+                </Button>
               </ListItem>
             </AccordionDetails>
           </Accordion>
@@ -293,7 +399,7 @@ export default function Layout(props) {
             bgcolor: "#F4EEF2",
             height: "100vh",
             p: 3,
-            marginTop: "3%"
+            marginTop: "3%",
           }}
         >
           <Toolbar />
