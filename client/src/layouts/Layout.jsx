@@ -38,10 +38,10 @@ export default function Layout(props) {
       </Typography>
       <Stack spacing={2} direction="row">
         <Link href={`/login`}>
-          <Button variant="outlined">Log In</Button>
+          <Button variant="contained">Log In</Button>
         </Link>
         <Link href={`/register`}>
-          <Button variant="outlined">Sign Up</Button>
+          <Button variant="contained">Sign Up</Button>
         </Link>
       </Stack>
     </>
@@ -120,11 +120,11 @@ export default function Layout(props) {
                   Welcome, {props.currentUser.username}
                 </Typography>
                 <Stack spacing={2} direction="row">
-                  <Button variant="outlined" onClick={props.handleLogout}>
-                    Log Out
+                  <Button variant="contained" onClick={props.handleLogout}>
+                    Logout
                   </Button>
                   <Link href={`/users/${props.currentUser.id}`}>
-                    <Button variant="outlined">Your Dashboard</Button>
+                    <Button variant="contained">Dashboard</Button>
                   </Link>
                 </Stack>
               </>
