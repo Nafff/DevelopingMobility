@@ -1,4 +1,6 @@
-import React from 'react'
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
@@ -17,23 +19,80 @@ import Link from "@mui/material/Link";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 export default function EditUserProfile(props) {
+  const [formData, setFormData] = useState({
+    username: "",
+    age: "",
+    profile_picture: "",
+    description: "",
+  });
+  const { id } = useParams();
+  const [isLoaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const prefillFormData = () => {
+      setFormData({
+        username: props.currentUser?.username,
+        age: props.currentUser?.age,
+        profile_picture: props.currentUser?.profile_picture,
+        description: props.currentUser?.description,
+      });
+    };
+    if (props.currentUser) {
+      prefillFormData();
+      setLoaded(true);
+    }
+  }, [props.currentUser, id]);
+
+  const handleChange = (e) => {
+    const { label, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [label]: value,
+    }));
+  };
+
+  console.log(formData);
+
+  if (!isLoaded) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <Grid item xs={12}>
-        <Paper elevation={3}>
-          <h1>{props.currentUser?.username}</h1>
+      <Paper elevation={3}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            props.handleFoodUpdate(id, formData);
+          }}
+        >
           <Avatar
             alt="Remy Sharp"
             src={props.currentUser?.profile_picture}
-            sx={{ width: 100, height: 100 }}
+            sx={{ width: 250, height: 250 }}
           />
-          <h3>{props.currentUser?.age}</h3>
-          <h3>{props.currentUser?.description}</h3>
-          <Link href={`/users/${props.currentUser?.id}/edit`}>
-            <Button variant="contained">Save Changes</Button>
-          </Link>
-        </Paper>
-      </Grid>
-  )
+          <TextField
+            required
+            id="filled-required"
+            label="Username"
+            defaultValue={`${formData?.username}`}
+            variant="filled"
+            onChange={handleChange}
+          />
+          <TextField
+            required
+            id="filled-required"
+            label="Age"
+            defaultValue={props.currentUser?.age}
+            variant="filled"
+            onChange={handleChange}
+          />
+          <Button type="submit" variant="contained">Save Changes</Button>
+        </form>
+      </Paper>
+    </Grid>
+  );
 }

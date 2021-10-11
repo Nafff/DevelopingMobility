@@ -68,7 +68,17 @@ export default function MainContainer(props) {
         return routine.id === Number(id) ? updatedRoutine : routine;
       })
     );
-    history.push("/routines");
+    history.push(`/routines/${id}`);
+  };
+  
+  const handleUserUpdate = async (id, userData) => {
+    const updatedUser = await putUser(id, userData);
+    setRoutines((prevState) =>
+      prevState.map((routine) => {
+        return user.id === Number(id) ? updatedUser : user;
+      })
+    );
+    history.push(`/users/${id}`);
   };
 
   const handleSearchStretchChange = (e) => {
