@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import React from "react";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -36,7 +37,7 @@ export default function Layout(props) {
         Welcome, Please Sign Up
       </Typography>
       <Stack spacing={2} direction="row">
-      <Link href={`/login`}>
+        <Link href={`/login`}>
           <Button variant="outlined">Log In</Button>
         </Link>
         <Link href={`/register`}>
@@ -77,13 +78,16 @@ export default function Layout(props) {
           component="main"
           sx={{
             flexGrow: 1,
-            bgcolor: "background.default",
+            bgcolor: "#cfe8fc",
+            height: "100vh",
             p: 3,
             ml: `${drawerWidth}px`,
           }}
         >
           <Toolbar />
-          {props.children}
+          
+            {props.children}
+         
         </Box>
         <Drawer
           sx={{
@@ -116,7 +120,9 @@ export default function Layout(props) {
               <>
                 <Avatar
                   alt="Default Profile Picture"
-                  src={"https://res.cloudinary.com/dy6xpqkkj/image/upload/c_lfill,g_north,h_140,w_200,x_0/v1633639529/DevelopingMobility/f00225dbda284b8e8d0300962a571784_2_sru2dk.png"}
+                  src={
+                    "https://res.cloudinary.com/dy6xpqkkj/image/upload/c_lfill,g_north,h_140,w_200,x_0/v1633639529/DevelopingMobility/f00225dbda284b8e8d0300962a571784_2_sru2dk.png"
+                  }
                 />
               </>
             )}

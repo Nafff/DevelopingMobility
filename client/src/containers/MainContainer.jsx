@@ -10,10 +10,10 @@ import {
 } from "../services/routines";
 import { getAllStretches } from "../services/stretches";
 
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Container from "@mui/material/Container";
 
 import Layout from "../layouts/Layout";
 import Stretches from "../screens/Stretches/Stretches";
@@ -106,50 +106,48 @@ export default function MainContainer(props) {
         handleLogout={props.handleLogout}
         handleSidebarStretchChange={handleSidebarStretchChange}
       >
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-          <Grid container spacing={3} sx={{ bgcolor: '#cfe8fc', height: '100vh' }} >
-            <Switch>
-              <Route path="/stretches/:id">
-                <StretchDetail routines={routines} />
-              </Route>
-              <Route path="/stretches">
-                <Stretches
-                  fitleredStretches={fitleredStretches}
-                  input={input}
-                  handleSearchStretchChange={handleSearchStretchChange}
-                />
-              </Route>
-              <Route path="/users/:id/edit">
-                <EditUserProfile currentUser={props.currentUser} />
-              </Route>
-              <Route path="/users/:id">
-                <UserProfile
-                  currentUser={props.currentUser}
-                  routines={routines}
-                />
-              </Route>
-              <Route path="/routines/:id/edit">
-                <EditRoutine
-                  routines={routines}
-                  handleRoutineUpdate={handleRoutineUpdate}
-                  stretches={stretches}
-                  setStretches={setStretches}
-                />
-              </Route>
-              <Route path="/routines/:id">
-                <RoutineDetail
-                  routines={routines}
-                  handleRoutineUpdate={handleRoutineUpdate}
-                  stretches={stretches}
-                  setStretches={setStretches}
-                />
-              </Route>
-              <Route path="/home">
-                <Home currentUser={props.currentUser} />
-              </Route>
-            </Switch>
-          </Grid>
-        </Container>
+        <Grid container spacing={3} width="100vw">
+          <Switch>
+            <Route path="/stretches/:id">
+              <StretchDetail routines={routines} />
+            </Route>
+            <Route path="/stretches">
+              <Stretches
+                fitleredStretches={fitleredStretches}
+                input={input}
+                handleSearchStretchChange={handleSearchStretchChange}
+              />
+            </Route>
+            <Route path="/users/:id/edit">
+              <EditUserProfile currentUser={props.currentUser} />
+            </Route>
+            <Route path="/users/:id">
+              <UserProfile
+                currentUser={props.currentUser}
+                routines={routines}
+              />
+            </Route>
+            <Route path="/routines/:id/edit">
+              <EditRoutine
+                routines={routines}
+                handleRoutineUpdate={handleRoutineUpdate}
+                stretches={stretches}
+                setStretches={setStretches}
+              />
+            </Route>
+            <Route path="/routines/:id">
+              <RoutineDetail
+                routines={routines}
+                handleRoutineUpdate={handleRoutineUpdate}
+                stretches={stretches}
+                setStretches={setStretches}
+              />
+            </Route>
+            <Route path="/home">
+              <Home currentUser={props.currentUser} />
+            </Route>
+          </Switch>
+        </Grid>
       </Layout>
     </div>
   );
