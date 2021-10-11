@@ -49,10 +49,10 @@ export default function MainContainer(props) {
     fetchStretches();
   }, []);
 
-  const handleRoutineCreate = async (routineData) => {
-    const newRoutine = await postRoutine(routineData);
+  const handleRoutineCreate = async () => {
+    const newRoutine = await postRoutine();
     setRoutines((prevState) => [...prevState, newRoutine]);
-    history.push("/routines");
+    history.push(`/routines/${routines.length + 1}/edit`);
   };
 
   const handleRoutineDelete = async (id) => {
@@ -83,12 +83,10 @@ export default function MainContainer(props) {
         return stretch.name
           .toLowerCase()
           .startsWith(e.target.value.toLowerCase());
-        // Use the toLowerCase() method to make it case-insensitive
       });
       setFilteredStretches(results);
     } else {
       setFilteredStretches(stretches);
-      // If the text field is empty, show all users
     }
 
     setInput(e.target.value);
@@ -99,7 +97,6 @@ export default function MainContainer(props) {
       return stretch.body_part
         .toLowerCase()
         .startsWith(e.target.value.toLowerCase());
-      // Use the toLowerCase() method to make it case-insensitive
     });
     setFilteredStretches(results);
     setInput(e.target.value);
@@ -129,8 +126,11 @@ export default function MainContainer(props) {
             </Route>
             <Route path="/users/:id">
               <UserProfile
+                setCurrentUser={props.setCurrentUser}
                 currentUser={props.currentUser}
                 routines={routines}
+                handleRoutineCreate={handleRoutineCreate}
+                handleRoutineDelete={handleRoutineDelete}
               />
             </Route>
             <Route path="/routines/:id/edit">

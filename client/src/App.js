@@ -89,6 +89,7 @@ function App() {
           </Route>
           <Route path="/">
             <MainContainer
+              setCurrentUser={setCurrentUser}
               currentUser={currentUser}
               handleLogout={handleLogout}
             />

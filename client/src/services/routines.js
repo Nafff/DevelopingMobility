@@ -10,8 +10,8 @@ export const getOneRoutine = async (id) => {
   return resp.data;
 };
 
-export const postRoutine = async (routineData) => {
-  const resp = await api.post('/routines', { routine: routineData });
+export const postRoutine = async () => {
+  const resp = await api.post('/routines', { routine: {name: 'New Routine'} });
   return resp.data;
 };
 
