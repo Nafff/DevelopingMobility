@@ -60,11 +60,13 @@ export default function Layout(props) {
         >
           <Toolbar>
             <Typography
+              marginRight="-25px"
               variant="h4"
               noWrap
               component="div"
               marginLeft="auto"
               fontFamily="'Didact Gothic', sans-serif;"
+              letterSpacing="6px"
             >
               DevelopingMobility
             </Typography>

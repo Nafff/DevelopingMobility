@@ -32,7 +32,7 @@ export default function UserProfile(props) {
           <h3>{props.currentUser?.age}</h3>
           <h3>{props.currentUser?.description}</h3>
           <Link href={`/users/${props.currentUser?.id}/edit`}>
-            <Button variant="outlined">Edit Profile</Button>
+            <Button variant="contained">Edit Profile</Button>
           </Link>
         </Paper>
       </Grid>
@@ -58,7 +58,7 @@ export default function UserProfile(props) {
               ))}
           </List>
           <Link href={`/routines/${props.routines.length + 1}/edit`}>
-            <Button variant="outlined">New Routine</Button>
+            <Button variant="contained">New Routine</Button>
           </Link>
         </Paper>
       </Grid>

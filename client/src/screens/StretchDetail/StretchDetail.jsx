@@ -56,7 +56,7 @@ export default function StretchDetail(props) {
           </Stack>
           <p>{stretch?.description}</p>
           <Stack spacing={2} direction="row">
-            <Button variant="outlined">Favorite</Button>
+            <Button variant="contained">Favorite</Button>
           </Stack>
           <form onSubmit={handleSubmit}>
             <select onChange={handleChange} defaultValue="default">
