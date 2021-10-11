@@ -33,7 +33,7 @@ export default function Layout(props) {
   const unauthenticatedOptions = (
     <>
       <Typography color="textPrimary" variant="h5">
-        Welcome
+        Welcome, Please Sign Up
       </Typography>
       <Stack spacing={2} direction="row">
       <Link href={`/login`}>
@@ -79,7 +79,7 @@ export default function Layout(props) {
             flexGrow: 1,
             bgcolor: "background.default",
             p: 3,
-            ml: `${drawerWidth * 2}px`,
+            ml: `${drawerWidth}px`,
           }}
         >
           <Toolbar />
@@ -123,7 +123,7 @@ export default function Layout(props) {
             {props.currentUser ? (
               <>
                 <Typography color="textPrimary" variant="h5">
-                  {props.currentUser.username}
+                  Welcome, {props.currentUser.username}
                 </Typography>
                 <Stack spacing={2} direction="row">
                   <Button variant="outlined" onClick={props.handleLogout}>
