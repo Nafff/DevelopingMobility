@@ -87,6 +87,7 @@ export default function RoutineDetail(props) {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
+                fullWidth
                 required
                 id="filled-required"
                 label="Routine Name"
