@@ -34,7 +34,6 @@ export default function Stretches(props) {
     e.preventDefault();
     await addStretchToRoutine(selectedRoutine, stretch_id);
   };
- 
 
   return (
     <Grid item xs={12}>
@@ -56,46 +55,46 @@ export default function Stretches(props) {
             />
             <List>
               {props.fitleredStretches?.map((stretch) => (
-                <Link href={`/stretches/${stretch.id}`}>
-                  <ListItem
-                    secondaryAction={
-                      <form onSubmit={() => handleSubmit(stretch.id)}>
-                        <FormControl sx={{ minWidth: 120 }}>
-                          <Stack spacing={2} direction="row">
-                            <InputLabel id="demo-simple-select-label">
-                              Routine
-                            </InputLabel>
-                            <Select
-                              labelId="demo-simple-select-label"
-                              id="demo-simple-select"
-                              // value={selectedRoutine}
-                              label="Routine"
-                              onChange={handleChange}
-                              sx={{ minWidth: 120 }}
-                            >
-                              {props.routines?.map((routine) => (
-                                <MenuItem value={routine.id}>
-                                  {routine.name}
-                                </MenuItem>
-                              ))}
-                            </Select>
-                            <Button type="submit" variant="contained">
-                              Add
-                            </Button>
-                          </Stack>
-                        </FormControl>
-                      </form>
-                    }
-                  >
-                    <ListItemAvatar>
-                      <Avatar alt="Profile Picture" src={stretch.picture_url} />
-                    </ListItemAvatar>
+                <ListItem
+                  secondaryAction={
+                    <form onSubmit={() => handleSubmit(stretch.id)}>
+                      <FormControl sx={{ minWidth: 120 }}>
+                        <Stack spacing={2} direction="row">
+                          <InputLabel id="demo-simple-select-label">
+                            Routine
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            // value={selectedRoutine}
+                            label="Routine"
+                            onChange={handleChange}
+                            sx={{ minWidth: 120 }}
+                          >
+                            {props.routines?.map((routine) => (
+                              <MenuItem value={routine.id}>
+                                {routine.name}
+                              </MenuItem>
+                            ))}
+                          </Select>
+                          <Button type="submit" variant="contained">
+                            Add
+                          </Button>
+                        </Stack>
+                      </FormControl>
+                    </form>
+                  }
+                >
+                  <ListItemAvatar>
+                    <Avatar alt="Profile Picture" src={stretch.picture_url} />
+                  </ListItemAvatar>
+                  <Link href={`/stretches/${stretch.id}`}>
                     <ListItemText
                       primary={stretch.name}
                       secondary={stretch.muscle_worked}
                     />
-                  </ListItem>
-                </Link>
+                  </Link>
+                </ListItem>
               ))}
             </List>
           </Grid>
