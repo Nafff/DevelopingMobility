@@ -98,11 +98,9 @@ export default function UserProfile(props) {
                 </div>
               ))}
           </List>
-          {/* <Link href={`/routines/${props.routines.length + 1}/edit`}> */}
           <Button variant="contained" onClick={props.handleRoutineCreate}>
             New Routine
           </Button>
-          {/* </Link> */}
         </Paper>
       </Grid>
     </>

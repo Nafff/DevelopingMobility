@@ -24,19 +24,16 @@ import Typography from "@mui/material/Typography";
 import FolderIcon from "@mui/icons-material/Folder";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Link from "@mui/material/Link";
-
-const Demo = styled("div")(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-}));
+import Button from "@mui/material/Button";
 
 export default function RoutineDetail(props) {
   const [routine, setRoutine] = useState(null);
-  const [selectedStretch, setSelectedStretch] = useState("");
   const { id } = useParams();
   const { stretches } = props;
-  const [stretchesInRoutine, setstretchesInRoutine] = useState(
-    new Array(stretches?.length).fill(false)
-  );
+  const [isLoaded, setLoaded] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+  });
 
   useEffect(() => {
     const fetchRoutine = async () => {
@@ -44,56 +41,68 @@ export default function RoutineDetail(props) {
       setRoutine(routineData);
     };
     fetchRoutine();
+    setLoaded(true);
   }, [id]);
 
-  routine?.stretches.map((stretch) => {
-    const index = stretches.indexOf(stretch.id);
-    stretchesInRoutine[index] = true;
-  });
+  useEffect(() => {
+    const prefillFormData = () => {
+      setFormData({
+        name: routine?.name,
+      });
+    };
+    prefillFormData();
+  }, [routine]);
 
-  console.log(stretchesInRoutine)
+  console.log(formData);
 
-  // const handleChange = (e) => {
-  //   const { value } = e.target;
-  //   setSelectedStretch(value);
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const routine = await removeStretchFromRoutine(selectedStretch, id);
-  //   setRoutine(routine);
-  // };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const handleRemove = async (stretch_id) => {
     const routine = await removeStretchFromRoutine(stretch_id, id);
     setRoutine(routine);
   };
 
-  // add remove stretch works on back end, stretch isn't removed from option on front end. maybe once changed to list it will work
+  if (!isLoaded) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
-    <Paper style={{ maxHeight: 500, overflow: "auto" }}>
-      <Box sx={{ flexGrow: 1, maxWidth: 1000, minWidth: 500 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
-            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-              {routine?.name}
-            </Typography>
-            <Demo>
-              {/* <Box
-                sx={{
-                  width: 500,
-                  maxWidth: "100%",
-                }}
-              >
-                <TextField
-                  fullWidth
-                  label="Name a stretch"
-                  id="fullWidth"
-                  value={props.input}
-                  onChange={props.handleSearchStretchChange}
-                />
-              </Box> */}
+    <Grid item xs={12}>
+      <Paper
+        style={{ maxHeight: "80vh", overflow: "auto" }}
+        sx={{ padding: 3 }}
+      >
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            props.handleRoutineUpdate(id, formData);
+          }}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                required
+                id="filled-required"
+                label="Routine Name"
+                name="name"
+                value={`${formData?.name}`}
+                defaultValue={`${formData?.name}`}
+                variant="filled"
+                onChange={handleChange}
+              />
+              <TextField
+                fullWidth
+                label="Name a stretch"
+                id="fullWidth"
+                value={props.input}
+                onChange={props.handleSearchStretchChange}
+              />
               <List>
                 {routine?.stretches.map((stretch) => (
                   <ListItem
@@ -119,23 +128,13 @@ export default function RoutineDetail(props) {
                   </ListItem>
                 ))}
               </List>
-            </Demo>
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
-      {/* <div>
-        <form onSubmit={handleSubmit}>
-          <select onChange={handleChange} defaultValue="default">
-            <option disabled value="default">
-              -- Select a Stretch --
-            </option>
-            {stretches.map((stretch) => (
-              <option value={stretch.id}>{stretch.name}</option>
-            ))}
-          </select>
-          <button>Remove</button>
+          <Button type="submit" variant="contained">
+            Save Routine
+          </Button>
         </form>
-      </div> */}
-    </Paper>
+      </Paper>
+    </Grid>
   );
 }

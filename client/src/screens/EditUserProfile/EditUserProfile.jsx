@@ -58,8 +58,6 @@ export default function EditUserProfile(props) {
     return <h1>Loading...</h1>;
   }
 
-  console.log(formData);
-
   return (
     <Grid item xs={12}>
       <Paper elevation={3} sx={{padding: 3}}>

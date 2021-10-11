@@ -139,6 +139,7 @@ export default function MainContainer(props) {
                 handleRoutineUpdate={handleRoutineUpdate}
                 stretches={stretches}
                 setStretches={setStretches}
+                handleSearchStretchChange={handleSearchStretchChange}
               />
             </Route>
             <Route path="/routines/:id">
@@ -147,6 +148,7 @@ export default function MainContainer(props) {
                 handleRoutineUpdate={handleRoutineUpdate}
                 stretches={stretches}
                 setStretches={setStretches}
+                handleSearchStretchChange={handleSearchStretchChange}
               />
             </Route>
             <Route path="/home">

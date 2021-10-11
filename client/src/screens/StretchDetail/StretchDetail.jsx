@@ -58,7 +58,7 @@ export default function StretchDetail(props) {
           <Stack spacing={2} direction="row">
             <Button variant="contained">Favorite</Button>
           </Stack>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={() => handleSubmit}>
             <select onChange={handleChange} defaultValue="default">
               <option disabled value="default">
                 -- Select a Routine --

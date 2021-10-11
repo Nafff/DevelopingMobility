@@ -10,7 +10,7 @@ User.destroy_all
 Routine.destroy_all
 Stretch.destroy_all
 
-@admin = User.create!(username: 'Cozy', email: 'cozy@email.com', password: '123456', profile_picture: 'https://www.allaboutbirds.org/guide/assets/photo/302472691-480px.jpg')
+@admin = User.create!(username: 'Cozy', email: 'cozy@email.com', password: '123456', profile_picture: 'https://www.allaboutbirds.org/guide/assets/photo/302472691-480px.jpg', description: 'Creator of this website. Coziest coder on the east coast. Avid powerlifter.')
 
 puts "#{User.count} users created"
 
