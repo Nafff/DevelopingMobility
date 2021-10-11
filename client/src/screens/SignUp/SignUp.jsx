@@ -71,7 +71,12 @@ export default function SignUp(props) {
           }}
         >
           <Container maxWidth="sm">
-            <form>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                props.handleRegister(formData);
+              }}
+            >
               <Stack
                 sx={{ pt: 4 }}
                 direction="column"
@@ -83,7 +88,7 @@ export default function SignUp(props) {
                   id="filled-required"
                   label="Username"
                   name="username"
-                  defaultValue=""
+                  value={formData.username}
                   variant="filled"
                   onChange={handleChange}
                 />
@@ -92,25 +97,26 @@ export default function SignUp(props) {
                   id="filled-required"
                   label="Email"
                   name="email"
-                  defaultValue=""
+                  value={formData.email}
                   variant="filled"
                   onChange={handleChange}
                 />
                 <TextField
                   required
+                  type="password"
                   id="filled-required"
                   label="Password"
                   name="password"
-                  defaultValue=""
+                  value={formData.password}
                   variant="filled"
                   onChange={handleChange}
                 />
                 <TextField
                   required
+                  type="password"
                   id="filled-required"
                   label="Confirm Password"
                   name="confirmPassword"
-                  defaultValue=""
                   variant="filled"
                 />
               </Stack>
@@ -132,7 +138,7 @@ export default function SignUp(props) {
                   spacing={2}
                   justifyContent="center"
                 >
-                  <Button variant="contained">Create Account</Button>
+                  <Button type="submit" variant="contained">Create Account</Button>
                   <Typography
                     variant="h5"
                     align="center"
