@@ -21,7 +21,7 @@ export default function UserProfile(props) {
   console.log(props.currentUser);
 
   return (
-    <div>
+    <Grid item xs={12}>
       <Paper elevation={3}>
         <h1>{props.currentUser?.username}</h1>
         <Avatar
@@ -60,6 +60,6 @@ export default function UserProfile(props) {
           <Button variant="outlined">New Routine</Button>
         </Link>
       </Paper>
-    </div>
+    </Grid>
   );
 }

@@ -74,21 +74,6 @@ export default function Layout(props) {
             />
           </Toolbar>
         </AppBar>
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            bgcolor: "#cfe8fc",
-            height: "100vh",
-            p: 3,
-            ml: `${drawerWidth}px`,
-          }}
-        >
-          <Toolbar />
-          
-            {props.children}
-         
-        </Box>
         <Drawer
           sx={{
             width: drawerWidth,
@@ -101,6 +86,7 @@ export default function Layout(props) {
           }}
           variant="permanent"
           anchor="left"
+          open
         >
           <Toolbar />
           <Box
@@ -298,6 +284,18 @@ export default function Layout(props) {
             </AccordionDetails>
           </Accordion>
         </Drawer>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            bgcolor: "#cfe8fc",
+            height: "100vh",
+            p: 3,
+          }}
+        >
+          <Toolbar />
+          {props.children}
+        </Box>
       </Box>
     </div>
   );

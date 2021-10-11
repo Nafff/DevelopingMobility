@@ -106,7 +106,7 @@ export default function MainContainer(props) {
         handleLogout={props.handleLogout}
         handleSidebarStretchChange={handleSidebarStretchChange}
       >
-        <Grid container spacing={3} width="100vw">
+        <Grid container spacing={3}>
           <Switch>
             <Route path="/stretches/:id">
               <StretchDetail routines={routines} />
