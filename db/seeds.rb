@@ -46,7 +46,9 @@ Stretch.create!(name: 'Wall Angel', video_url: 'https://www.youtube.com/watch?v=
 
 Stretch.create!(name: 'Seated Glute Stretch', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Gluteus Maximus', body_part: 'Legs', description: 'Sit on the floor and extend your legs out in front of you. Keeping your back straight and core braced, lift your left leg and place your left ankle on your right knee. Lean slightly forward to deepen the stretch. Hold for 15-30 seconds then repeat on the opposite side.')
 
-Stretch.create!(name: 'Kneeling Lunge', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Hamstrings', body_part: 'Legs', description: 'Test Desc')
+Stretch.create!(name: 'Kneeling Lunge', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Quadriceps', body_part: 'Legs', description: 'Kneel on your right knee with your torso in an upright position and your left leg extended behind you. Brace your core and keep your shoulders upright. Bend forward from the hip to the knee to start feeling the stretch in your hip and quadriceps. Bend forward more to increase the stretch. Hold for 30-60 seconds and switch sides.')
+
+Stretch.create!(name: 'Standing Pike', video_url: 'https://www.youtube.com/watch?v=W_ITvIc3G0I', picture_url: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-slider-lunge.jpg?quality=86&strip=all', muscle_worked: 'Hamstrings', body_part: 'Legs', description: 'Being standing upright with both legs together. Hinge at the waist and fold forward while keeping your knees straight, reaching towards the ground. Aim to lay your chest across your thighs as your hang freely. Do not force your hands towards the ground, let the hang naturally stretch your hamstrings. Hold for 30-60 seconds.')
 
 puts "#{Stretch.count} stretches created"
 
