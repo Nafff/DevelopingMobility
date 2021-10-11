@@ -8,6 +8,7 @@ import {
   putRoutine,
   getOneRoutine,
 } from "../services/routines";
+import { putUser } from "../services/auth";
 import { getAllStretches } from "../services/stretches";
 
 import Grid from "@mui/material/Grid";
@@ -72,12 +73,7 @@ export default function MainContainer(props) {
   };
   
   const handleUserUpdate = async (id, userData) => {
-    const updatedUser = await putUser(id, userData);
-    setRoutines((prevState) =>
-      prevState.map((routine) => {
-        return user.id === Number(id) ? updatedUser : user;
-      })
-    );
+    await putUser(id, userData);
     history.push(`/users/${id}`);
   };
 
@@ -129,7 +125,7 @@ export default function MainContainer(props) {
               />
             </Route>
             <Route path="/users/:id/edit">
-              <EditUserProfile currentUser={props.currentUser} />
+              <EditUserProfile currentUser={props.currentUser} handleUserUpdate={handleUserUpdate}/>
             </Route>
             <Route path="/users/:id">
               <UserProfile

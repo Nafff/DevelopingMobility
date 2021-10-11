@@ -66,7 +66,7 @@ export default function EditUserProfile(props) {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            props.handleFoodUpdate(id, formData);
+            props.handleUserUpdate(id, formData);
           }}
         >
           <Avatar
