@@ -288,9 +288,10 @@ export default function Layout(props) {
           component="main"
           sx={{
             flexGrow: 1,
-            bgcolor: "#cfe8fc",
+            bgcolor: "#F4EEF2",
             height: "100vh",
             p: 3,
+            marginTop: "3%"
           }}
         >
           <Toolbar />
