@@ -10,7 +10,7 @@ User.destroy_all
 Routine.destroy_all
 Stretch.destroy_all
 
-@admin = User.create!(username: 'Chickadee', email: 'chickadee@email.com', password: '123456', profile_picture: 'https://www.allaboutbirds.org/guide/assets/photo/302472691-480px.jpg')
+@admin = User.create!(username: 'Cozy', email: 'cozy@email.com', password: '123456', profile_picture: 'https://www.allaboutbirds.org/guide/assets/photo/302472691-480px.jpg')
 
 puts "#{User.count} users created"
 
@@ -52,6 +52,8 @@ Stretch.create!(name: 'Standing Pike', video_url: 'https://www.youtube.com/watch
 
 puts "#{Stretch.count} stretches created"
 
-@routine1 = Routine.create!(name: 'Test Routine', user: @admin)
+@routine1 = Routine.create!(name: 'Monday Upper Body', user: @admin)
+@routine2 = Routine.create!(name: 'Wednesday Lower Body', user: @admin)
+@routine3 = Routine.create!(name: 'Friday Full Body', user: @admin)
 
 puts "#{Routine.count} routines created"
