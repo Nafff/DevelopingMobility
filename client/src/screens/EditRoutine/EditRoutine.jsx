@@ -35,7 +35,7 @@ export default function RoutineDetail(props) {
   const { id } = useParams();
   const { stretches } = props;
   const [stretchesInRoutine, setstretchesInRoutine] = useState(
-    new Array(stretches.length).fill(false)
+    new Array(stretches?.length).fill(false)
   );
 
   useEffect(() => {
@@ -47,9 +47,11 @@ export default function RoutineDetail(props) {
   }, [id]);
 
   routine?.stretches.map((stretch) => {
-    const index = allIngredients.indexOf(ingredient);
-    ingredientsState[index] = true;
+    const index = stretches.indexOf(stretch.id);
+    stretchesInRoutine[index] = true;
   });
+
+  console.log(stretchesInRoutine)
 
   // const handleChange = (e) => {
   //   const { value } = e.target;
