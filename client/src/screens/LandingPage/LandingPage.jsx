@@ -23,7 +23,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        DevelopingMobility
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -70,7 +70,6 @@ export default function LandingPage() {
               spacing={2}
               justifyContent="center"
             >
-
               <Typography
                 variant="h5"
                 align="center"
@@ -94,22 +93,21 @@ export default function LandingPage() {
               />
             </Stack>
             <Stack
-              sx={{ pt: 4 }}
+              // sx={{ pt: 4 }}
               direction="row"
               spacing={2}
               justifyContent="center"
             >
-
               <Box
                 component="img"
                 sx={{
                   height: 233,
                   width: 350,
-                  maxHeight: { xs: 233, md: 167 },
-                  maxWidth: { xs: 350, md: 250 },
+                  maxHeight: { xs: 500, md: 500 },
+                  maxWidth: { xs: 500, md: 500 },
                 }}
-                alt="Work from home laptop."
-                src="https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633944742/DevelopingMobility/working_from_home_ll8yru.png"
+                alt="Stretching at home."
+                src="https://res.cloudinary.com/dy6xpqkkj/image/upload/v1633944672/DevelopingMobility/Exercising_at_home_xmazyy.png"
               />
               <Typography
                 variant="h5"
@@ -118,18 +116,26 @@ export default function LandingPage() {
                 paragraph
               >
                 Something short and leading about the collection below—its
-                contents, the creator, etc. Make it short and sweet, but not too
-                short so folks don&apos;t simply skip over it entirely.
+                contents.
+                <Stack
+                  sx={{ pt: 1 }}
+                  direction="column"
+                  spacing={2}
+                  justifyContent="center"
+                >
+                  <Link href="/home">
+                    <Button variant="contained">Take a look around</Button>
+                  </Link>
+                  <Stack direction="row" spacing={2} justifyContent="center">
+                    <Link href="/login">
+                      <Button variant="outlined">Login</Button>
+                    </Link>
+                    <Link href="/register">
+                    <Button variant="outlined">Register</Button>
+                    </Link>
+                  </Stack>
+                </Stack>
               </Typography>
-            </Stack>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
             </Stack>
           </Container>
         </Box>
@@ -137,7 +143,7 @@ export default function LandingPage() {
       {/* Footer */}
       <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Congratulations Chickadees!
         </Typography>
         <Typography
           variant="subtitle1"
@@ -145,7 +151,7 @@ export default function LandingPage() {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Thank you for your visit, have a wonderful day
         </Typography>
         <Copyright />
       </Box>
