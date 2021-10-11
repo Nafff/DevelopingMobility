@@ -5,6 +5,7 @@ export default function SignUp(props) {
     username: "",
     email: "",
     password: "",
+    description: "Add some info about you! Edit your profile below."
   });
 
   const handleChange = (e) => {
