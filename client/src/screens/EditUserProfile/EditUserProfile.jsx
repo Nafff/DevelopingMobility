@@ -58,41 +58,72 @@ export default function EditUserProfile(props) {
     return <h1>Loading...</h1>;
   }
 
-  console.log(formData)
+  console.log(formData);
 
   return (
     <Grid item xs={12}>
-      <Paper elevation={3}>
+      <Paper elevation={3} sx={{padding: 3}}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             props.handleUserUpdate(id, formData);
           }}
         >
-          <Avatar
-            alt="Remy Sharp"
-            src={props.currentUser?.profile_picture}
-            sx={{ width: 250, height: 250 }}
-          />
-          <TextField
-            required
-            id="filled-required"
-            label="Username"
-            name="username"
-            defaultValue={`${formData?.username}`}
-            variant="filled"
-            onChange={handleChange}
-          />
-          <TextField
-            required
-            id="filled-required"
-            label="Email"
-            name="email"
-            defaultValue={`${formData?.email}`}
-            variant="filled"
-            onChange={handleChange}
-          />
-          <Button type="submit" variant="contained">Save Changes</Button>
+          <Stack direction="row" spacing={2}>
+            <Avatar
+              alt="Remy Sharp"
+              src={props.currentUser?.profile_picture}
+              sx={{ width: 250, height: 250 }}
+            />
+            <Stack
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+              spacing={1}
+            >
+              <TextField
+                required
+                id="filled-required"
+                label="Username"
+                name="username"
+                defaultValue={`${formData?.username}`}
+                variant="filled"
+                onChange={handleChange}
+              />
+              <TextField
+                required
+                id="filled-required"
+                label="Email"
+                name="email"
+                defaultValue={`${formData?.email}`}
+                variant="filled"
+                onChange={handleChange}
+              />
+              <TextField
+                required
+                id="filled-required"
+                label="Profile Picture URL"
+                name="profile_picture"
+                defaultValue={`${formData?.profile_picture}`}
+                variant="filled"
+                onChange={handleChange}
+              />
+              <TextField
+                required
+                id="filled-required"
+                label="Bio"
+                name="description"
+                defaultValue={`${formData?.description}`}
+                variant="filled"
+                multiline
+                rows={4}
+                onChange={handleChange}
+              />
+              <Button type="submit" variant="contained">
+                Save Changes
+              </Button>
+            </Stack>
+          </Stack>
         </form>
       </Paper>
     </Grid>

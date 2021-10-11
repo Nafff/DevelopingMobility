@@ -40,11 +40,11 @@ export default function StretchDetail(props) {
 
   return (
     <>
-      <Paper elevation={3}>
+      <Paper elevation={3} sx={{padding: 3}}>
         <h3>{stretch?.name}</h3>
         <ReactPlayer url={stretch?.video_url} />
       </Paper>
-      <Paper elevation={3}>
+      <Paper elevation={3} sx={{padding: 3}}>
         <div>
           <Stack spacing={2} direction="row">
             <Avatar

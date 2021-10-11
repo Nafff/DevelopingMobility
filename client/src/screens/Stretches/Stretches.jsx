@@ -29,7 +29,7 @@ export default function Stretches(props) {
     // <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
     // fix width issue
     <Grid item xs={12}>
-      <Paper style={{ maxHeight: "80vh", overflow: "auto" }}>
+      <Paper style={{ maxHeight: "80vh", overflow: "auto" }} sx={{padding: 3}}>
         {/* <Box sx={{ flexGrow: 1, maxWidth: 1000, minWidth: 500 }}> */}
         <Grid container spacing={2}>
           <Grid item xs={12}>

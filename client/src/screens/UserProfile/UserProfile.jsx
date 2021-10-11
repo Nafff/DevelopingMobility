@@ -22,7 +22,7 @@ export default function UserProfile(props) {
   return (
     <>
       <Grid item xs={12}>
-        <Paper elevation={3}>
+        <Paper elevation={3} sx={{padding: 3}}>
           <h1>{props.currentUser?.username}</h1>
           <Avatar
             alt="Remy Sharp"
@@ -37,7 +37,7 @@ export default function UserProfile(props) {
         </Paper>
       </Grid>
       <Grid item xs={12}>
-        <Paper>
+        <Paper sx={{padding: 3}}>
           <List>
             {props.routines
               ?.filter((routine) => routine.user_id === props.currentUser?.id)

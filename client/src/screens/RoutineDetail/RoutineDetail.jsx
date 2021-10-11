@@ -62,7 +62,7 @@ export default function RoutineDetail(props) {
   // add remove stretch works on back end, stretch isn't removed from option on front end. maybe once changed to list it will work
 
   return (
-    <Paper style={{ maxHeight: 500, overflow: "auto" }}>
+    <Paper style={{ maxHeight: 500, overflow: "auto" }} sx={{padding: 3}}>
       <Box sx={{ flexGrow: 1, maxWidth: 1000, minWidth: 500 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>

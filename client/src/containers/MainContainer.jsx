@@ -74,7 +74,7 @@ export default function MainContainer(props) {
   
   const handleUserUpdate = async (id, userData) => {
     await putUser(id, userData);
-    history.push(`/users/${id}`)
+    history.push(`/users/${id}`);
   };
 
   const handleSearchStretchChange = (e) => {
