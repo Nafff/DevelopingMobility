@@ -58,7 +58,7 @@ export default function LandingPage() {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "background.paper",
+            bgcolor: "#F4EEF2",
             pt: 8,
             pb: 6,
           }}
@@ -141,7 +141,7 @@ export default function LandingPage() {
         </Box>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
+      <Box sx={{ bgcolor: "#F4EEF2", p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
           Congratulations Chickadees!
         </Typography>

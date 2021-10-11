@@ -22,6 +22,9 @@ import {
 
 const theme = createTheme({
   palette: {
+    background: {
+      default: "#F4EEF2",
+    },
     primary: {
       main: "#85577B",
     },
