@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import React from "react";
 import Grid from "@mui/material/Grid";
@@ -23,21 +23,32 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 const drawerWidth = {
-  width: '240px',
-  '@media(minWidth: 780px)' : {
-    width: '120px'
-  }
-}
+  width: "240px",
+  "@media(minWidth: 780px)": {
+    width: "120px",
+  },
+};
 
 export default function Layout(props) {
   const [expanded, setExpanded] = useState(false);
+  const [isLoaded, setLoaded] = useState(false)
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
+  useEffect(() => {
+    setLoaded(true)
+  }, [props.currentUser])
+
   const unauthenticatedOptions = (
     <>
+      <Avatar
+        alt="Default Profile Picture"
+        src={
+          "https://res.cloudinary.com/dy6xpqkkj/image/upload/c_lfill,g_north,h_140,w_200,x_0/v1633639529/DevelopingMobility/f00225dbda284b8e8d0300962a571784_2_sru2dk.png"
+        }
+      />
       <Typography color="textPrimary" variant="h5">
         Welcome, Please Sign Up
       </Typography>
@@ -47,6 +58,23 @@ export default function Layout(props) {
         </Link>
         <Link href={`/register`}>
           <Button variant="contained">Sign Up</Button>
+        </Link>
+      </Stack>
+    </>
+  );
+
+  const authenticatedOptions = (
+    <>
+      <Avatar alt="Profile Picture" src={props.currentUser?.profile_picture} />
+      <Typography color="textPrimary" variant="h5">
+        Welcome, {props.currentUser?.username}
+      </Typography>
+      <Stack spacing={2} direction="row">
+        <Button variant="contained" onClick={props.handleLogout}>
+          Logout
+        </Button>
+        <Link href={`/users/${props.currentUser?.id}`}>
+          <Button variant="contained">Dashboard</Button>
         </Link>
       </Stack>
     </>
@@ -104,7 +132,7 @@ export default function Layout(props) {
               p: 2,
             }}
           >
-            {props.currentUser ? (
+            {/* {props.currentUser ? (
               <Avatar
                 alt="Profile Picture"
                 src={props.currentUser.profile_picture}
@@ -135,7 +163,8 @@ export default function Layout(props) {
               </>
             ) : (
               unauthenticatedOptions
-            )}
+            )} */}
+            {isLoaded ? authenticatedOptions : unauthenticatedOptions}
           </Box>
           <Divider />
           <List>
