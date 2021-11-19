@@ -14,6 +14,7 @@ import Link from "@mui/material/Link";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
 
 import { verifyUser } from "../../services/auth";
 
@@ -82,13 +83,20 @@ export default function UserProfile(props) {
                 <div>
                   <ListItem
                     secondaryAction={
-                      <IconButton
-                        edge="end"
-                        aria-label="delete"
-                        onClick={() => props.handleRoutineDelete(routine.id)}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
+                      <Stack direction="row" spacing={3}>
+                        <Link href={`/routines/${routine.id}/edit`}>
+                          <IconButton edge="end" aria-label="delete">
+                            <EditIcon />
+                          </IconButton>
+                        </Link>
+                        <IconButton
+                          edge="end"
+                          aria-label="delete"
+                          onClick={() => props.handleRoutineDelete(routine.id)}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </Stack>
                     }
                   >
                     <Link href={`/routines/${routine.id}`}>

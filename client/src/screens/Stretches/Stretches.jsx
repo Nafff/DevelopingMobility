@@ -60,7 +60,7 @@ export default function Stretches(props) {
                     <form onSubmit={() => handleSubmit(stretch.id)}>
                       <FormControl sx={{ minWidth: 120 }}>
                         <Stack spacing={2} direction="row">
-                          <InputLabel id="demo-simple-select-label">
+                          <InputLabel id="demo-simple-select-label" sx={{ paddingLeft: 3 }}>
                             Routine
                           </InputLabel>
                           <Select

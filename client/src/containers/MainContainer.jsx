@@ -52,13 +52,14 @@ export default function MainContainer(props) {
   const handleRoutineCreate = async () => {
     const newRoutine = await postRoutine();
     setRoutines((prevState) => [...prevState, newRoutine]);
-    history.push(`/routines/${routines.length + 1}/edit`);
+    // history.push(`/routines/${routines?.length + 1}/edit`);
+    // <Redirect to={`/routines/${routines?.length + 1}/edit`} />
   };
 
   const handleRoutineDelete = async (id) => {
     await deleteRoutine(id);
     setRoutines((prevState) =>
-      prevState.filter((routineItem) => routineItem.id !== id)
+      prevState.filter((routine) => routine.id !== id)
     );
   };
 
